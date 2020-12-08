@@ -1,2 +1,2 @@
-# VarConT: The VAriants Context Analysis Toolkits
+# VarConT: The Variants Context Analysis Toolkits
 
