@@ -11,3 +11,4 @@ Dependencies: 1. PyVCF (my version is 0.6.8)
               2. Biopython (my version is 1.76, to run the tool, at least version 1.72)
               3. Pandas (my version is 0.17.1)
               4. NumPy (my version is 1.16.6)
+              
