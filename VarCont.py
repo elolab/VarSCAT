@@ -120,15 +120,18 @@ Advanced parameters:
                     Translate=arg   
                 elif opt in ('--translate_table'):
                     table_def=arg
-                
-            try:
-                complex_result = read_VCF.complex_module(pre_df,reference_f,flank)
-                # write into csv
-                output_file_complex = output_complex+'.csv'
-                complex_result.to_csv (output_file_complex, index = False, header=True)
-                print "Complex variants module finished"
-            except:
-                print "Complex variants module error!!!!"
+            complex_result = read_VCF.complex_module(pre_df,reference_f,flank)
+            output_file_complex = output_complex+'.csv'
+            complex_result.to_csv (output_file_complex, index = False, header=True)
+            print "Complex variants module finished"
+            #try:
+            #    complex_result = read_VCF.complex_module(pre_df,reference_f,flank)
+            #    # write into csv
+            #    output_file_complex = output_complex+'.csv'
+            #    complex_result.to_csv (output_file_complex, index = False, header=True)
+            #    print "Complex variants module finished"
+            #except:
+            #    print "Complex variants module error!!!!"
 
         # repeat module input fetch
         if ('-r' in sys.argv[1:] or '--repeat' in sys.argv[1:]):
@@ -146,14 +149,19 @@ Advanced parameters:
                     alignment_score=float(arg)
                 elif opt in ('--gap_score'):
                     gap_score=float(arg)*10
-            try:
-                repeat_result = read_VCF.repeat_module(pre_df,reference_f,rmin,rmax,esize,alignment_score,gap_score)
-                # write into csv
-                output_file_repeat = output_repeat+'.csv'
-                repeat_result.to_csv (output_file_repeat, index = False, header=True)
-                print ("Repeat regions variants module finished")
-            except:
-                print ("Repeat regions variants module error!!!!")
+            repeat_result = read_VCF.repeat_module(pre_df,reference_f,rmin,rmax,esize,alignment_score,gap_score)
+            # write into csv
+            output_file_repeat = output_repeat+'.csv'
+            repeat_result.to_csv (output_file_repeat, index = False, header=True)
+            print ("Repeat regions variants module finished")
+            #try:
+            #    repeat_result = read_VCF.repeat_module(pre_df,reference_f,rmin,rmax,esize,alignment_score,gap_score)
+            #    # write into csv
+            #    output_file_repeat = output_repeat+'.csv'
+            #    repeat_result.to_csv (output_file_repeat, index = False, header=True)
+            #    print ("Repeat regions variants module finished")
+            #except:
+            #    print ("Repeat regions variants module error!!!!")
 
 
     # error raise
