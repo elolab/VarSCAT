@@ -120,12 +120,12 @@ Advanced parameters:
                     Translate=arg   
                 elif opt in ('--translate_table'):
                     table_def=arg
-            complex_result = read_VCF.complex_module(pre_df,reference_f,flank)
+            complex_result = read_VCF.complex_module(pre_df,reference_f,flank,location,Mut_seq,Complement,Transcript,Translate,table_def)
             output_file_complex = output_complex+'.csv'
             complex_result.to_csv (output_file_complex, index = False, header=True)
             print "Complex variants module finished"
             #try:
-            #    complex_result = read_VCF.complex_module(pre_df,reference_f,flank)
+            #    complex_result = read_VCF.complex_module(pre_df,reference_f,flank,location,Mut_seq,Complement,Transcript,Translate,table_def)
             #    # write into csv
             #    output_file_complex = output_complex+'.csv'
             #    complex_result.to_csv (output_file_complex, index = False, header=True)
