@@ -1,4 +1,4 @@
-# VarConT: The Variants Context Analysis Toolkits
+# VarConT: The Variants Context Analysis Toolkit
 Two modules currently support: complex variants module & repeat regions variants module
 
 To get help page of the tool: 
