@@ -5,6 +5,9 @@ To get help page of the tool: python VarCont.py -h
 Complex variants module: python VarCont.py -c -h
 Repeat regions variants module: python VarCont.py -r -h
 
+Example: python VarCont.py -c --vcf result.vcf --reference reference.fa --location chr19:605124-694960 --based 1 --output_complex my_complex 
+         python VarCont.py -r --vcf result.vcf --reference reference.fa --location chr19:605124-694960 --based 1 --output_repeat my_repeat
+
 Currently it only tested and support with Ubuntu 16.04. Window are not supported because it had problem with make. Some dependencies of VarCont can nut run.
 
 Dependencies: 1. PyVCF (my version is 0.6.8)
