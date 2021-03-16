@@ -153,8 +153,8 @@ Advanced parameters:
 	except getopt.GetoptError:
 		print('''Getopt error! help:
 VarCont v1.0
--c,--ambiguity: ambigious variants analysis module
--r,--satellite: satellite DNA region variants analysis module
+-a,--ambiguity: ambigious variants analysis module
+-s,--satellite: satellite DNA region variants analysis module
 -h,--help: help page
 
 Note: the program was built on 1 based coordination system
