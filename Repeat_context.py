@@ -27,13 +27,6 @@ def catching_variant(position_l1, REF_l1, ALT_l1, Ref1,min_size1,max_size1,exact
 	Repeat_raw_L1 = sizing_window(variant_start,variant_pattern,variant_length,Ref1,min_size1,max_size1,exact_size1,alignAS1,gapAS1,based1) 
 	return Repeat_raw_L1
 
-def catching_variant_SNV(position_l1, REF_l1, ALT_l1, Ref1,min_size1,max_size1,exact_size1,alignAS1,gapAS1,based1):
-	variant_start = int(position_l1)-based1
-	variant_pattern = REF_l1
-	variant_length = len(REF_l1)
-	Repeat_raw_L1 = sizing_window(variant_start,variant_pattern,variant_length,Ref1,min_size1,max_size1,exact_size1,alignAS1,gapAS1,based1) 
-	return Repeat_raw_L1
-
 def sizing_window(start,pattern,length, Ref2,min_size2,max_size2,exact_size2,alignAS2,gapAS2,based2):
 	Repeat_df_L2 = pd.DataFrame(columns=["Motifs", "Period","RepeatS","Size","Start","End","Position_O","AlignmentS","GapS"])
 	for i in range(min_size2,max_size2):  
@@ -89,7 +82,7 @@ def search_repeats(df,ref_file,min_size0,max_size0,exact_size0,alignAS0,gapAS0,b
 			chr_name=chromosome
 			Ref=read_reference.read_reference_sequence(ref_file,chr_name)
 
-		Repeat_raw_L0 = catching_variant_Indel(position,REF,ALT,Ref,min_size0,max_size0,exact_size0,alignAS0,gapAS0,based0) 
+		Repeat_raw_L0 = catching_variant(position,REF,ALT,Ref,min_size0,max_size0,exact_size0,alignAS0,gapAS0,based0) 
 
 		Repeat_df_L0 = pd.DataFrame(columns=["Chromosome","Position","REF","ALT","Genotype","Motifs","Period","Size","Start","End","Repeat_Score","Alignment_Score","Gap_Score","Repeat_GC%"])
 		if Repeat_raw_L0.empty == False:
