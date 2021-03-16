@@ -156,8 +156,6 @@ VarCont v1.0
 -a,--ambiguity: ambigious variants analysis module
 -s,--satellite: satellite DNA region variants analysis module
 -h,--help: help page
-
-Note: the program was built on 1 based coordination system
 ''')
 		sys.exit(2)
 
