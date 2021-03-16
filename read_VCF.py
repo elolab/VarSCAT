@@ -95,8 +95,6 @@ def read_vcf(vcf_file,location,func,ref_file,based):
 	variant_list_df = variant_list_df[["Chromosome","Position","REF","ALT","Genotype"]]
 
 	print("Normalization ready")
-	end = time.time()
-	print(end - start)
 
 	return variant_list_df
 
