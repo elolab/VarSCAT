@@ -18,6 +18,9 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 1. python VarSCAT.py -h
 2. Ambiguous variants analysis module: python VarSCAT.py -A -h
 3. Tandam repeat variants analysis module: python VarSCAT.py -T -h
+Two modules can be used together or separate<br />
+If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file<br />
+If no module is given, the output will be normalized variant list in txt format
 ### Ambigious variants analysis module:
 **Required parameters:<br />**
 --vcf: input VCF file <br />
