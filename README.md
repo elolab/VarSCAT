@@ -15,7 +15,7 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 
 ## Usage:
 ### To get help page of the tool: 
-**Main: **python VarSCAT.py -h<br />
+**Main:** python VarSCAT.py -h<br />
 **Ambiguous variants analysis module: **python VarSCAT.py -A -h<br />
 **Tandam repeat region variants analysis module: **python VarSCAT.py -T -h<br />
 
