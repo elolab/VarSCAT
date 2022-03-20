@@ -56,12 +56,12 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 --min_match_per: the minimum match percentage of a tandem repeat region. (default=70, means 70% of matches)<br />
 
 ## Examples
-###### output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants
-python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz --reference chr22.fa --output output
-###### output reference sequence and mutated sequence for a specfici location
-python VarSCAT.py -A --mut_seq 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location
-###### output resutls with a bed file
-python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed regions.bed --vcf test.vcf.gz --reference chr22.fa --output output_bed
-###### output 5' align positions, 3' align positions, 3' edge positions and perfect tandem repeat regions 
-python VarSCAT.py -A --LRP 1 -T --align_continue 100 --gap_continue 0 --vcf test.vcf.gz --reference chr22.fa --output output_TR
+**output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
+python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz --reference chr22.fa --output output<br />
+**output reference sequence and mutated sequence for a specfici location**<br />
+python VarSCAT.py -A --mut_seq 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location<br />
+**output resutls with a bed file**<br />
+python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed regions.bed --vcf test.vcf.gz --reference chr22.fa --output output_bed<br />
+**output 5' align positions, 3' align positions, 3' edge positions and perfect tandem repeat regions** <br />
+python VarSCAT.py -A --LRP 1 -T --align_continue 100 --gap_continue 0 --vcf test.vcf.gz --reference chr22.fa --output output_TR<br />
        
