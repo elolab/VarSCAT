@@ -15,47 +15,9 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 
 ## Usage:
 ### To get help page of the tool: 
-python VarSCAT.py -h<br />
-Ambiguous variants analysis module: python VarSCAT.py -A -h<br />
-Tandam repeat variants analysis module: python VarSCAT.py -T -h<br />
-Two modules can be used together or separate<br />
-If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format
-### Ambigious variants analysis module:
-**Required parameters:<br />**
---vcf: input VCF file <br />
---reference: input reference sequencing file<br />
---based: 0-based or 1-based reference coordination (default:1)<br />
---output: name of output file<br />
-**Optional parameters:<br />**
---location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)<br />
---bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)<br />
---LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0,equal to False)<br />
---HGVS: output the HGVS nomenclature (default=0, equal to False)<br />
---flank: output the flank bases of variants. (default=0, equal to False)<br />
---adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)<br />
---mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on. Note: valid with --location)<br />
---complement: output the reverse complement sequence of mutated sequence. (Integrated VCF is not supported,default=0, Note: valid with --mut_seq)<br />
-
-### Tandem repeat region variants analysis module:
-**Required parameters:<br />**
---vcf: input VCF file <br />
---reference: input reference sequencing file<br />
---based: 0-based or 1-based reference coordination (default:1)<br />
---output: name of output file<br />
-**Optional parameters:<br />**
---location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)<br />
---bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)<br />
-**Advanced parameters:<br />**
---min_unit: the minimun size of tandem repeat pattern unit. (default=1)<br />
---max_unit: the maximum size of tandem repeat pattern unit. (default=6, larger size will increase the running time)<br />
---min_time: the minimun repeat time to call a tandem repeat. (default=4) <br />
---match: match score for local alignment of potential repeat unit. (default=1)<br />
---mismatch: mismatch score for local alignment of potential repeat unit. (default=-1)<br />
---gap: gap penalty for local alignment of potential repeat unit. (default=-2)<br />
---align_continue: the minimum similarity percentage of a potential repeat unit that allows local alignment algorithm continue. (default=75, means 75% of similarity)<br />
---gap_continue: the maximum tolerated gap size (bp) between potential repeat units that allows local alignment algorithm continue. (default=Dynamic(size of current repeat unit -1))<br />
---min_score: the minimum alignment score of a tandem repeat region. (default=10, set according "--match","--mismatch","-gap")<br />
---min_match_per: the minimum match percentage of a tandem repeat region. (default=70, means 70% of matches)<br />
+**Main: **python VarSCAT.py -h<br />
+**Ambiguous variants analysis module: **python VarSCAT.py -A -h<br />
+**Tandam repeat region variants analysis module: **python VarSCAT.py -T -h<br />
 
 ## Examples
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
