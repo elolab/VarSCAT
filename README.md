@@ -16,8 +16,8 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 ## Usage:
 ### To get help page of the tool: 
 **Main:** python VarSCAT.py -h<br />
-**Ambiguous variants analysis module: **python VarSCAT.py -A -h<br />
-**Tandam repeat region variants analysis module: **python VarSCAT.py -T -h<br />
+**Ambiguous variants analysis module:** python VarSCAT.py -A -h<br />
+**Tandam repeat region variants analysis module:** python VarSCAT.py -T -h<br />
 
 ## Examples
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
