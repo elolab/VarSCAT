@@ -15,12 +15,11 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 
 ## Usage:
 ### To get help page of the tool: 
-1. python VarSCAT.py -h
-2. Ambiguous variants analysis module: python VarSCAT.py -A -h
-3. Tandam repeat variants analysis module: python VarSCAT.py -T -h
+python VarSCAT.py -h<br />
+Ambiguous variants analysis module: python VarSCAT.py -A -h<br />
+Tandam repeat variants analysis module: python VarSCAT.py -T -h<br />
 Two modules can be used together or separate<br />
-If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file<br />
-If no module is given, the output will be normalized variant list in txt format
+If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format
 ### Ambigious variants analysis module:
 **Required parameters:<br />**
 --vcf: input VCF file <br />
@@ -65,6 +64,6 @@ python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz -
 python VarSCAT.py -A --mut_seq 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location<br />
 **Output resutls with a bed file**<br />
 python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed regions.bed --vcf test.vcf.gz --reference chr22.fa --output output_bed<br />
-**Output perfect tandem repeat regions** <br />
-python VarSCAT.py -T --align_continue 100 --gap_continue 0 --vcf test.vcf.gz --reference chr22.fa --output output_TR<br />
+**Output 5' align positions, 3' align positions, 3' edge positions and perfect tandem repeat regions** <br />
+python VarSCAT.py -A --LRP 1 -T --align_continue 100 --gap_continue 0 --vcf test.vcf.gz --reference chr22.fa --output output_TR
        
