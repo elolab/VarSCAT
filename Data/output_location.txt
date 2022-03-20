@@ -1,0 +1,2 @@
+Chromosome	Position	REF	ALT	NA12877
+chr22	11318591	GTA	G	1|1
