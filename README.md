@@ -19,31 +19,31 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 2. Ambiguous variants analysis module: python VarSCAT.py -A -h
 3. Tandam repeat variants analysis module: python VarSCAT.py -T -h
 ### Ambigious variants analysis module:
-Required parameters:<br />
+**Required parameters:<br />**
 --vcf: input VCF file <br />
 --reference: input reference sequencing file<br />
 --based: 0-based or 1-based reference coordination (default:1)<br />
 --output: name of output file<br />
-Optional parameters:<br />
+**Optional parameters:<br />**
 --location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)<br />
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)<br />
 --LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0,equal to False)<br />
---HGVS: output the HGVS nomenclature (default=0, equal to False. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding accession and version of the used reference)<br />
+--HGVS: output the HGVS nomenclature (default=0, equal to False)<br />
 --flank: output the flank bases of variants. (default=0, equal to False)<br />
 --adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)<br />
 --mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on. Note: valid with --location)<br />
 --complement: output the reverse complement sequence of mutated sequence. (Integrated VCF is not supported,default=0, Note: valid with --mut_seq)<br />
 
 ### Tandem repeat region variants analysis module:
-Required parameters:<br />
+**Required parameters:<br />**
 --vcf: input VCF file <br />
 --reference: input reference sequencing file<br />
 --based: 0-based or 1-based reference coordination (default:1)<br />
 --output: name of output file<br />
-Optional parameters:<br />
+**Optional parameters:<br />**
 --location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)<br />
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)<br />
-Advanced parameters:<br />
+**Advanced parameters:<br />**
 --min_unit: the minimun size of tandem repeat pattern unit. (default=1)<br />
 --max_unit: the maximum size of tandem repeat pattern unit. (default=6, larger size will increase the running time)<br />
 --min_time: the minimun repeat time to call a tandem repeat. (default=4) <br />
