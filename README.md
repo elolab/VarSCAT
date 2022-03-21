@@ -10,8 +10,8 @@ VarSCAT is an open-source， a command-line based tool written in Python for ana
 5. NumPy (https://numpy.org/, my version is 1.19.5)
 6. pysam (https://pysam.readthedocs.io/en/latest/index.html, my version 0.18.0) is needed, it may need to be install separately
 7. ordered-set (https://github.com/rspeer/ordered-set, 4.0.2)
-8. pyfaidx (https://pypi.org/project/pyfaidx/, 0.6.4)
-Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported because it had problem with make. Some dependencies of VarSCAT can nut run.
+8. pyfaidx (https://pypi.org/project/pyfaidx/, 0.6.4)<br />
+Currently tested on CentOS 7.9 and Ubuntu 16.04. 
 
 ## Usage:
 ### To get help page of the tool: 
