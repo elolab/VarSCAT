@@ -6,7 +6,6 @@ import var_context
 import mut_ref_var
 import Complex_variants
 import Repeat_context
-import function_output
 import HGVS_convert
 import read_reference
 
