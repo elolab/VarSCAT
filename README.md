@@ -19,12 +19,12 @@ Windows 10 had problems with install pysam, which make --location and --bed opti
 ### To get help page of the tool: 
 **Main:** python VarSCAT.py -h<br />
 **Ambiguous variants analysis module:** python VarSCAT.py -A -h<br />
-`Ambigious variants analysis module:`
-`Required parameters:`
-`--vcf: input VCF file `
-`--reference: input reference sequencing file`
-`--based: 0-based or 1-based reference coordination (default:1)`
-`--output: name of output file`
+`Ambigious variants analysis module:<br />`
+`Required parameters:<br />`
+`--vcf: input VCF file<br />`
+`--reference: input reference sequencing file<br />`
+`--based: 0-based or 1-based reference coordination (default:1)<br />`
+`--output: prefix of output file<br />`
 
 Optional parameters:
 --location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)
