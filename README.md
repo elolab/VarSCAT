@@ -19,6 +19,23 @@ Windows 10 had problems with install pysam, which make --location and --bed opti
 ### To get help page of the tool: 
 **Main:** python VarSCAT.py -h<br />
 **Ambiguous variants analysis module:** python VarSCAT.py -A -h<br />
+`Ambigious variants analysis module:
+Required parameters:
+--vcf: input VCF file 
+--reference: input reference sequencing file
+--based: 0-based or 1-based reference coordination (default:1)
+--output: name of output file
+
+Optional parameters:
+--location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)
+--bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
+--LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0,equal to False)
+--HGVS: output the HGVS nomenclature (default=0, equal to False. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding      
+        accession and version of the used reference)
+--flank: output the flank bases of variants. (default=0, equal to False)
+--adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)
+--mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on. Note: valid with --location)
+--complement: output the reverse complement sequence of mutated sequence. (Integrated VCF is not supported,default=0, Note: valid with --mut_seq)`
 **Tandam repeat region variants analysis module:** python VarSCAT.py -T -h<br />
 ### Examples
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
