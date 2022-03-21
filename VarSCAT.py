@@ -8,7 +8,7 @@ def main():
 	location=''
 	bed=''
 	based=1
-	output='VarSConT_output'
+	output='VarSCAT_output'
 	LRP="0"
 	HGVS="0"
 	flank="0"
@@ -35,8 +35,7 @@ Help main:
 -h,--help: help page
 
 Two modules can be used together or separate
-If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file
-If no module is given, the output will be normalized variant list in txt format
+If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format
 ''')	
 			sys.exit(2)	
 		if ('-A' in sys.argv[1:] or '--Ambiguity' in sys.argv[1:]) and ('-h' in sys.argv[1:] or '--help' in sys.argv[1:]):
@@ -52,8 +51,7 @@ Optional parameters:
 --location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
 --LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0,equal to False)
---HGVS: output the HGVS nomenclature (default=0, equal to False. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding      
-        accession and version of the used reference)
+--HGVS: output the HGVS nomenclature (default=0, equal to False. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding accession and version of the used reference)
 --flank: output the flank bases of variants. (default=0, equal to False)
 --adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)
 --mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on. Note: valid with --location)
