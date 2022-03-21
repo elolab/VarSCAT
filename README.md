@@ -35,8 +35,32 @@ Optional parameters:
 --adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)
 --mut_seq: output the reference and mutated sequence based on variants.(Integrated VCF not supporte,default=0,0:off,1:on.Note: valid with --location)
 --complement: output the reverse complement sequence of mutated sequence. (Integrated VCF not supporte,default=0, Note: valid with --mut_seq)
+-h,--help: help page
 ```
 **Tandam repeat region variants analysis module:** `python VarSCAT.py -T -h`<br />
+```
+Tandem repeat region variants analysis module:
+Required parameters:
+--vcf: input VCF file 
+--reference: input reference sequencing file
+--based: 0-based or 1-based reference coordination (default:1)
+--output: name of output file
+Optional parameters:
+--location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed)
+--bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
+Advanced parameters:
+--min_unit: the minimun size of tandem repeat pattern unit. (default=1)
+--max_unit: the maximum size of tandem repeat pattern unit. (default=6, larger size will increase the running time)
+--min_time: the minimun repeat time to call a tandem repeat. (default=4) 
+--match: match score for local alignment of potential repeat unit. (default=1)
+--mismatch: mismatch score for local alignment of potential repeat unit. (default=-1)
+--gap: gap penalty for local alignment of potential repeat unit. (default=-2)
+--align_continue: the minimum similarity percentage of a potential repeat unit. (default=75, means 75% of similarity)
+--gap_continue: the maximum tolerated gap size (bp) between potential repeat units. (default=Dynamic(size of current repeat unit -1))
+--min_score: the minimum alignment score of a tandem repeat region. (default=10, set according "--match","--mismatch","-gap")
+--min_match_per: the minimum match percentage of a tandem repeat region. (default=70, means 70% of matches)
+-h,--help: help page
+```
 ### Examples
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz --reference chr22.fa --output output`<br />
