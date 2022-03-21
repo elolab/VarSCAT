@@ -19,7 +19,9 @@ Windows 10 had problems with install pysam, which make --location and --bed opti
 ### To get help page of the tool: 
 **Main:** python VarSCAT.py -h<br />
 **Ambiguous variants analysis module:** python VarSCAT.py -A -h<br />
-`Ambigious variants analysis module:<br /> Required parameters:`
+```
+Ambigious variants analysis module:
+Required parameters:`
 --vcf: input VCF file
 --reference: input reference sequencing file
 --based: 0-based or 1-based reference coordination (default:1)
