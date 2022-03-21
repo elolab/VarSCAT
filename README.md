@@ -17,10 +17,11 @@ Currently tested on CentOS 7.9 and Ubuntu 16.04. Window are not supported becaus
 ### To get help page of the tool: 
 **Main:** python VarSCAT.py -h<br />
 **Ambiguous variants analysis module:** python VarSCAT.py -A -h<br />
-Chromosome	Position	REF	ALT	SAMPLE	5'_aligned	3'_aligned	3'_edge	ref_sequence	mut_sequence	HGVS
-chr22	11317468	G	A	1|1	11317468	11317468	11317468	AGT	AAT	chr22:g.11317468G>A
-chr22	11318591	GTA	G	0|1	11318592	11318605	11318606	GTATATATATATATATC	G - -TATATATATATATC	chr22:g.11318593AT[6]
-chr22	11318818	C	G	1|1	11318818	11318818	11318818	ACG	AGG	chr22:g.11318818C>G
+
+| header | header |
+| ------ | ------ |
+| cell | cell |
+| cell | cell |
 **Tandam repeat region variants analysis module:** python VarSCAT.py -T -h<br />
 
 ## Examples
