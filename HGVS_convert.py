@@ -91,58 +91,57 @@ def HGVS_transform(df,ref_file,based):
 
 		if df.loc[i,"REF"].upper()[0]==df.loc[i,"ALT"].upper()[0]:
 			if len(df.loc[i,"REF"])>len(df.loc[i,"ALT"]):
-				if int(df.loc[i,"Right align position"])==int(df.loc[i,"Position"])+1:
+				if int(df.loc[i,"3'_aligned"])==int(df.loc[i,"Position"])+1:
 					if len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])==1:
-						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"del"
-					# NC_000019.10:g.1106407_1106408del (19 1106406 ATC A)
+						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"del"
 					elif len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])>1:
-						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"_"+str(int(df.loc[i,"Right align position"])+len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])-1)+"del"
-				elif int(df.loc[i,"Right align position"])!=int(df.loc[i,"Position"])+1:
+						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"_"+str(int(df.loc[i,"3'_aligned"])+len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])-1)+"del"
+				elif int(df.loc[i,"3'_aligned"])!=int(df.loc[i,"Position"])+1:
 					if len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])>1:
-						Right_align_seq=ref[int(df.loc[i,"Right align position"])-based:int(df.loc[i,"UPS_R"])-based+1].upper()
+						Right_align_seq=ref[int(df.loc[i,"3'_aligned"])-based:int(df.loc[i,"3'_edge"])-based+1].upper()
 						in_seq_result=in_seq_pattern(Right_align_seq)
 						in_seq_RT=in_seq_result[0]
 						in_seq_RM=in_seq_result[1]
 						
-						out_seq_result=out_seq_pattern(in_seq_RM,ref,based,int(df.loc[i,"Right align position"]))
+						out_seq_result=out_seq_pattern(in_seq_RM,ref,based,int(df.loc[i,"3'_aligned"]))
 						out_seq_left=out_seq_result[0]
 						out_seq_right=out_seq_result[1]
 						out_seq_RT=out_seq_result[2]
 		
 						if out_seq_RT==0:
-							item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"_"+str(int(df.loc[i,"Right align position"])+len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])-1)+"del"
+							item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"_"+str(int(df.loc[i,"3'_aligned"])+len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])-1)+"del"
 						elif out_seq_RT!=0:
 							if len(in_seq_RM)==1:
-								item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"_"+str(int(df.loc[i,"Right align position"])+len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])-1)+"del"
+								item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"_"+str(int(df.loc[i,"3'_aligned"])+len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])-1)+"del"
 							elif len(in_seq_RM)>1:
 								item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(out_seq_left)+in_seq_RM+"["+str(out_seq_RT)+"]"						
 					elif len(df.loc[i,"REF"])-len(df.loc[i,"ALT"])==1:
-						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"del"
+						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"del"
 
 			elif len(df.loc[i,"REF"])<len(df.loc[i,"ALT"]):
-				if int(df.loc[i,"Right align position"])==int(df.loc[i,"Position"]):
-					item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"_"+str(df.loc[i,"Right align position"]+1)+"ins"+str(df.loc[i,"ALT"][1:])
-				elif int(df.loc[i,"Right align position"])!=int(df.loc[i,"Position"]):
+				if int(df.loc[i,"3'_aligned"])==int(df.loc[i,"Position"]):
+					item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"_"+str(df.loc[i,"3'_aligned"]+1)+"ins"+str(df.loc[i,"ALT"][1:])
+				elif int(df.loc[i,"3'_aligned"])!=int(df.loc[i,"Position"]):
 					if len(df.loc[i,"ALT"])-len(df.loc[i,"REF"])==1:
-						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"dup"
+						item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"dup"
 					elif len(df.loc[i,"ALT"])-len(df.loc[i,"REF"])>1:
-						Right_align_seq=form_shifted_variant(df.loc[i,"ALT"][1:],int(df.loc[i,"Right align position"]),int(df.loc[i,"Position"]))
+						Right_align_seq=form_shifted_variant(df.loc[i,"ALT"][1:],int(df.loc[i,"3'_aligned"]),int(df.loc[i,"Position"]))
 						in_seq_result=in_seq_pattern(Right_align_seq)
 						in_seq_RT=in_seq_result[0]
 						in_seq_RM=in_seq_result[1]
 						
-						out_seq_result=out_seq_pattern(in_seq_RM,ref,based,int(df.loc[i,"Right align position"])+1) 
+						out_seq_result=out_seq_pattern(in_seq_RM,ref,based,int(df.loc[i,"3'_aligned"])+1) 
 						out_seq_left=out_seq_result[0]
 						out_seq_right=out_seq_result[1]
 						out_seq_RT=out_seq_result[2]
 						if out_seq_RT==0:
-							item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"_"+str(df.loc[i,"Right align position"]+1)+"ins"+Right_align_seq
+							item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"_"+str(df.loc[i,"3'_aligned"]+1)+"ins"+Right_align_seq
 						elif out_seq_RT!=0:
 							if len(in_seq_RM)==1:
 								if out_seq_RT<len(df.loc[i,"ALT"][1:]):
-									item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"])+"_"+str(df.loc[i,"Right align position"]+1)+"ins"+str(df.loc[i,"ALT"][1:])
+									item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"])+"_"+str(df.loc[i,"3'_aligned"]+1)+"ins"+str(df.loc[i,"ALT"][1:])
 								elif out_seq_RT>=len(df.loc[i,"ALT"][1:]):
-									item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"Right align position"]-len(df.loc[i,"ALT"])+1+1)+"_"+str(df.loc[i,"Right align position"])+"dup"
+									item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(df.loc[i,"3'_aligned"]-len(df.loc[i,"ALT"])+1+1)+"_"+str(df.loc[i,"3'_aligned"])+"dup"
 							elif len(in_seq_RM)>1:
 								if (out_seq_RT+in_seq_RT)==2: 
 									item = str(df.loc[i,"Chromosome"])+":"+g_prefix+"."+str(out_seq_left)+"_"+str(out_seq_right)+"dup"
@@ -166,15 +165,5 @@ def HGVS_transform(df,ref_file,based):
 		HGVS_result.append(item)
 
 	return HGVS_result
-
-
-
-
-
-
-
-
-
-
-						
+				
 

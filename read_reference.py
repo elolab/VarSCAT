@@ -1,11 +1,11 @@
-import sys
-from Bio import SeqIO
+from pyfaidx import Fasta
 
 def read_reference_sequence(input_file,chromosome):
 	try:
-		for seq_record in SeqIO.parse(input_file, "fasta"):
-			if seq_record.id==chromosome:
-				sequence_chr=str(seq_record.seq)
+		reference_seq = Fasta(input_file,rebuild=False)
+		sequence_chr=reference_seq[chromosome][:].seq
 		return sequence_chr
-	except UnboundLocalError:
+	except KeyError:
 		print ("Error2:reference file chromosome name, vcf record chromosome name, location chromosome name should be consistent (either all chrX or only X)")
+		sys.exit(2)
+

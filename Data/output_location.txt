@@ -1,0 +1,2 @@
+Chromosome	Position	REF	ALT	SAMPLE
+chr22	11318591	GTA	G	0|1
