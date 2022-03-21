@@ -26,26 +26,24 @@ Required parameters:`
 --reference: input reference sequencing file
 --based: 0-based or 1-based reference coordination (default:1)
 --output: prefix of output file
-```
-
 Optional parameters:
---location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed if --location is activated, a tbi file of the VCF is required, empty: analyze all variants)
+--location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed, empty: analyze all variants)
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
 --LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0,equal to False)
---HGVS: output the HGVS nomenclature (default=0, equal to False. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding      
-        accession and version of the used reference)
+--HGVS: output the HGVS nomenclature (default=0, equal to False)
 --flank: output the flank bases of variants. (default=0, equal to False)
 --adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)
---mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on. Note: valid with --location)
---complement: output the reverse complement sequence of mutated sequence. (Integrated VCF is not supported,default=0, Note: valid with --mut_seq)`
-**Tandam repeat region variants analysis module:** python VarSCAT.py -T -h<br />
+--mut_seq: output the reference and mutated sequence based on variants.(Integrated VCF not supporte,default=0,0:off,1:on.Note: valid with --location)
+--complement: output the reverse complement sequence of mutated sequence. (Integrated VCF not supporte,default=0, Note: valid with --mut_seq)
+```
+**Tandam repeat region variants analysis module:** `python VarSCAT.py -T -h`<br />
 ### Examples
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
-python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz --reference chr22.fa --output output<br />
+`python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz --reference chr22.fa --output output`<br />
 **Output reference sequence and mutated sequence for a specfici location**<br />
-python VarSCAT.py -A --mut_seq 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location<br />
+`python VarSCAT.py -A --mut_seq 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location`<br />
 **Output resutls with a bed file**<br />
-python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed regions.bed --vcf test.vcf.gz --reference chr22.fa --output output_bed<br />
+`python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed regions.bed --vcf test.vcf.gz --reference chr22.fa --output output_bed`<br />
 **Output 5' align positions, 3' align positions, 3' edge positions and perfect tandem repeat regions** <br />
-python VarSCAT.py -A --LRP 1 -T --align_continue 100 --gap_continue 0 --vcf test.vcf.gz --reference chr22.fa --output output_TR
+`python VarSCAT.py -A --LRP 1 -T --align_continue 100 --gap_continue 0 --vcf test.vcf.gz --reference chr22.fa --output output_TR`
        
