@@ -6,8 +6,8 @@ VarSCAT is an open-source， a command-line based tool written in Python for ana
 **Currently tested on CentOS 7.9, Ubuntu 16.04.**<br />
 Windows 10 had problems with install pysam, which make --location and --bed option for VarSCAT disfunction.
 1. Python 3.6.8 (https://www.python.org/), perhaps works on python 2.7.12
-2. PyVCF  (https://pyvcf.readthedocs.io/en/latest/,my version is 0.6.8) 
-3. Biopython (https://biopython.org/,my version is 1.76, to run the tool, at least version 1.72)
+2. PyVCF  (https://pyvcf.readthedocs.io/en/latest/, my version is 0.6.8) 
+3. Biopython (https://biopython.org/, my version is 1.76, to run the tool, at least version 1.72)
 4. Pandas (https://pandas.pydata.org/, my version is 1.1.5)
 5. NumPy (https://numpy.org/, my version is 1.19.5)
 6. pysam (https://pysam.readthedocs.io/en/latest/index.html, my version 0.18.0)
