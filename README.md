@@ -10,7 +10,7 @@ Windows 10 had problems with install pysam, which make --location and --bed opti
 3. Biopython (https://biopython.org/,my version is 1.76, to run the tool, at least version 1.72)
 4. Pandas (https://pandas.pydata.org/, my version is 1.1.5)
 5. NumPy (https://numpy.org/, my version is 1.19.5)
-6. pysam (https://pysam.readthedocs.io/en/latest/index.html, my version 0.18.0) is needed, it may need to be install separately
+6. pysam (https://pysam.readthedocs.io/en/latest/index.html, my version 0.18.0)
 7. ordered-set (https://github.com/rspeer/ordered-set, 4.0.2)
 8. pyfaidx (https://pypi.org/project/pyfaidx/, 0.6.4)
 
