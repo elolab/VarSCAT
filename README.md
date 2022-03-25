@@ -64,8 +64,8 @@ Advanced parameters:
 ### Examples
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking regions of variants, distance to 3' variants**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf test.vcf.gz --reference chr22.fa --output output`<br />
-**Output reference sequence and mutated sequence for a specfici location**<br />
-`python VarSCAT.py -A --mut_seq 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location`<br />
+**output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location**<br />
+`python VarSCAT.py -A --mut_seq 1 --complement 1 --location chr22:11318581-11318601 --vcf test.vcf.gz --reference chr22.fa --output output_location`<br />
 **Parse variants for several locations in a bed file**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed regions.bed --vcf test.vcf.gz --reference chr22.fa --output output_bed`<br />
 **Output 5' align positions, 3' align positions, 3' edge positions and perfect tandem repeat regions** <br />
