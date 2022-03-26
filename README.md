@@ -60,7 +60,7 @@ Advanced parameters:
 --min_match_per: the minimum match percentage of a tandem repeat region. (default=100, means 100% of matches)
 -h,--help: help page
 ```
-### Examples with test files in Data folder
+### Examples with test files in data folder
 **Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking bases of variants, distance to 3' variants**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output`<br />
 **output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location**<br />
