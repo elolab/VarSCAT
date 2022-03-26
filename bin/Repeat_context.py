@@ -1,7 +1,3 @@
-#import sys
-#from Bio.Seq import Seq
-#from Bio import Align
-#from Bio import motifs
 from .repeatAlign import count_minisatellite, trim_repeat
 from .remove_redundancy import clean_df
 from .Local_GC import GC_content
