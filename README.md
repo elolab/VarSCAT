@@ -4,7 +4,7 @@ VarSCAT is an open-source， a command-line based tool written in Python for ana
 
 ## Dependencies:
 **Currently tested on CentOS 7.9**<br />
-**Install dependencies: pip install -r requirements.txt**
+**Install dependencies:** `pip install -r requirements.txt`
 1. Python 3.6.8 (https://www.python.org/)
 2. PyVCF>=0.6.8 (https://pyvcf.readthedocs.io/en/latest/) 
 3. Biopython>=1.72 (https://biopython.org/)
