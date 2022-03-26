@@ -1,7 +1,7 @@
 import sys, getopt
-from bin.read_VCF import read_vcf
-from bin.read_VCF import complex_module
-from bin.read_VCF import repeat_module
+from resource.read_VCF import read_vcf
+from resource.read_VCF import complex_module
+from resource.read_VCF import repeat_module
 import datetime
 import pandas as pd
 
