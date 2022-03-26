@@ -1,4 +1,3 @@
-#from Bio.Seq import Seq
 from .read_reference import read_reference_sequence
 
 def mutation_seq(df,ref_file,based,len_header):
