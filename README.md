@@ -54,10 +54,10 @@ Advanced parameters:
 --match: match score for local alignment of potential repeat unit. (default=1)
 --mismatch: mismatch score for local alignment of potential repeat unit. (default=-1)
 --gap: gap penalty for local alignment of potential repeat unit. (default=-2)
---align_continue: the minimum similarity percentage of a potential repeat unit. (default=75, means 75% of similarity)
---gap_continue: the maximum tolerated gap size (bp) between potential repeat units. (default=Dynamic(size of current repeat unit -1))
+--align_continue: the minimum similarity percentage of a potential repeat unit that allows local alignment algorithm continue. (default=100, means 100% of similarity)
+--gap_continue: the maximum tolerated gap size (bp) between potential repeat units that allows local alignment algorithm continue. (default=0, set to -1 for size of current repeat unit -1))
 --min_score: the minimum alignment score of a tandem repeat region. (default=10, set according "--match","--mismatch","-gap")
---min_match_per: the minimum match percentage of a tandem repeat region. (default=70, means 70% of matches)
+--min_match_per: the minimum match percentage of a tandem repeat region. (default=100, means 100% of matches)
 -h,--help: help page
 ```
 ### Examples
