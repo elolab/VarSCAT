@@ -1,7 +1,3 @@
-#from Bio.Seq import Seq
-#from Bio import Align
-#from Bio import motifs
-#from Bio.SeqUtils import GC
 from operator import itemgetter
 
 def ATGC_diff(seq,pattern):
