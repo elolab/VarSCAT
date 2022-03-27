@@ -15,6 +15,16 @@ VarSCAT is an open-source, a command-line based tool written in Python for analy
 
 
 ## Usage:
+### Examples with test files in data folder
+**Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking bases of variants, distance to 3' variants**<br />
+`python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output`<br />
+**Output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location**<br />
+`python VarSCAT.py -A --mut_seq 1 --complement 1 --location chr22:11318581-11318601 --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output_location`<br />
+**Parse variants for several locations in a bed file**<br />
+`python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output_bed`<br />
+**Output flanking bases of variants and tandem repeat regions with default setting** <br />
+`python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output_TR`
+
 ### To get help page of the tool: 
 **Main:** `python VarSCAT.py -h`<br />
 **Ambiguous variants analysis module:** `python VarSCAT.py -A -h`<br />
@@ -62,13 +72,3 @@ Advanced parameters:
 
 -h,--help: help page
 ```
-### Examples with test files in data folder
-**Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking bases of variants, distance to 3' variants**<br />
-`python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output`<br />
-**Output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location**<br />
-`python VarSCAT.py -A --mut_seq 1 --complement 1 --location chr22:11318581-11318601 --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output_location`<br />
-**Parse variants for several locations in a bed file**<br />
-`python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output_bed`<br />
-**Output flanking bases of variants and tandem repeat regions with default setting** <br />
-`python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/chr22.fa --output output_TR`
-       
