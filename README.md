@@ -20,44 +20,46 @@ VarSCAT is an open-source, a command-line based tool written in Python for analy
 **Ambiguous variants analysis module:** `python VarSCAT.py -A -h`<br />
 ```
 Ambigious variants analysis module:
-Required parameters:`
---vcf: input VCF file
---reference: input reference sequencing file
+Required parameters:
+--vcf: a input VCF file (The VCF file should be indexed if --location or --bed is activated, a tbi file of the VCF is required)
+--reference: a input reference sequence fasta file (a fai index file is required)
 --based: 0-based or 1-based reference coordination (default:1)
 --output: prefix of output file
 Optional parameters:
---location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed)
---bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
---LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0,equal to False)
---HGVS: output the HGVS nomenclature (default=0, equal to False)
---flank: output the flank bases of variants. (default=0, equal to False)
---adjacent: output the distance to 3' direction nearest variant. (Integrated VCF is not supported,default=0,equal to False)
---mut_seq: output the reference and mutated sequence based on variants.(Integrated VCF not supporte,default=0,0:off,1:on.Note: valid with --location)
---complement: output the reverse complement sequence of mutated sequence. (Integrated VCF not supporte,default=0, Note: valid with --mut_seq)
+--location: a genome location need to be parsed (format chrx:xxxx-xxxx))
+--bed: a bed file contains genome locations need to be parsed (Three columns: choromosome, start, end)
+--LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants (default=0,0:off,1:on)
+--HGVS: output the HGVS nomenclature (default=0,0:off,1:on)
+--flank: output the flank bases of variants (default=0,0:off,1:on)
+--adjacent: output the distance to 3' direction nearest variant. (default=0,0:off,1:on)
+--mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on, Note: valid with --location)
+--complement: output the reverse complement sequence of mutated sequence. (Integrated VCF is not supported,default=0,0:off,1:on, Note: valid with --mut_seq)
+
 -h,--help: help page
 ```
 **Tandam repeat region variants analysis module:** `python VarSCAT.py -T -h`<br />
 ```
 Tandem repeat region variants analysis module:
 Required parameters:
---vcf: input VCF file 
---reference: input reference sequencing file
+--vcf: input VCF file (The VCF file should be indexed if --location or --bed is activated, a tbi file of the VCF is required)
+--reference: input reference sequence file (a fai index file is required)
 --based: 0-based or 1-based reference coordination (default:1)
---output: name of output file
+--output: prefix of output file
 Optional parameters:
---location: a genome location (format chrx:xxxx-xxxx) need to be parsed. (the VCF file should be indexed)
+--location: a genome location need to be parsed (format chrx:xxxx-xxxx)
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
 Advanced parameters:
---min_unit: the minimun size of tandem repeat pattern unit. (default=1)
---max_unit: the maximum size of tandem repeat pattern unit. (default=6, larger size will increase the running time)
---min_time: the minimun repeat time to call a tandem repeat. (default=4) 
---match: match score for local alignment of potential repeat unit. (default=1)
---mismatch: mismatch score for local alignment of potential repeat unit. (default=-1)
---gap: gap penalty for local alignment of potential repeat unit. (default=-2)
---align_continue: the minimum similarity percentage of a potential repeat unit that allows local alignment algorithm continue. (default=100, means 100% of similarity)
---gap_continue: the maximum tolerated gap size (bp) between potential repeat units that allows local alignment algorithm continue. (default=0, set to -1 for size of current repeat unit -1))
---min_score: the minimum alignment score of a tandem repeat region. (default=10, set according "--match","--mismatch","-gap")
---min_match_per: the minimum match percentage of a tandem repeat region. (default=100, means 100% of matches)
+--min_unit: the minimun size of tandem repeat motif (default=1)
+--max_unit: the maximum size of tandem repeat motif (default=6, larger size will increase the running time)
+--min_time: the minimun repeat time to call a tandem repeat (default=4) 
+--match: the match score for local sequence context pairwise alignment algorithm (default=1)
+--mismatch: the mismatch score for local sequence context pairwise alignment algorithm (default=-1)
+--gap: the gap penalty for local sequence context pairwise alignment algorithm (default=-2)
+--align_continue: the minimum similarity between potential repeat units that allows pairwise alignment algorithm to continue (default=100, means 100% similarity)
+--gap_continue: the maximum tolerated gap size (bp) between potential repeat units that allows pairwise alignment algorithm to continue (default=0, -1 for maximum gap of motif size -1)
+--min_score: the minimum alignment score of a tandem repeat (default=10, set according "--match","--mismatch","-gap")
+--min_match_per: the minimum match percentage of a tandem repeat (default=100, means 100% of matches)
+
 -h,--help: help page
 ```
 ### Examples with test files in data folder
