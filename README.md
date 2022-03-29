@@ -11,7 +11,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for analy
 5. pysam>=0.18.0 (https://pysam.readthedocs.io/en/latest/index.html)
 6. ordered-set>=4.0.2 (https://github.com/rspeer/ordered-set)
 7. pyfaidx>=0.6.4 (https://pypi.org/project/pyfaidx/)
-8. packaging>=21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta. The speed of reading bgzip fasta is much slower than plain fasta. The plain fasta is recommended at the moment)
+8. packaging>=21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta. The speed of reading bgzip fasta is much slower than plain fasta. The plain fasta is recommended at the moment)<br />
 **Install dependencies:** <br />
 `pip install -r requirements.txt`
 **For conda:** <br />
