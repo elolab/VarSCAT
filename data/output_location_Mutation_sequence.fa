@@ -1,0 +1,6 @@
+>Ref_seq chr_test:20-30
+ACGTATATTGC
+>Mut_seq chr_test_22_G_A / chr_test_25_T_TA / chr_test_29_G_A / 
+ACATATAATTAC
+>Reverse_complement_Mut_seq Reverse complement of mutated sequence
+GTAATTATATGT
