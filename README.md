@@ -4,7 +4,6 @@ VarSCAT is an open-source, a command-line based tool written in Python for analy
 
 ## Dependencies:
 **Currently tested on CentOS 7.9**<br />
-**Install dependencies:** `pip install -r requirements.txt`
 1. Python 3.6.8 (https://www.python.org/)
 2. PyVCF>=0.6.8 (https://pyvcf.readthedocs.io/en/latest/) 
 3. Biopython>=1.72 (https://biopython.org/)
@@ -12,7 +11,12 @@ VarSCAT is an open-source, a command-line based tool written in Python for analy
 5. pysam>=0.18.0 (https://pysam.readthedocs.io/en/latest/index.html)
 6. ordered-set>=4.0.2 (https://github.com/rspeer/ordered-set)
 7. pyfaidx>=0.6.4 (https://pypi.org/project/pyfaidx/)
-
+8. packaging>=21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta. The speed of reading bgzip fasta is much slower than plain fasta. The plain fasta is recommended at the moment)
+**Install dependencies:** <br />
+`pip install -r requirements.txt`
+**For conda:** <br />
+`conda env create -f environment.yml`
+`conda activate VarSCAT`
 
 ## Usage:
 ### Notes
