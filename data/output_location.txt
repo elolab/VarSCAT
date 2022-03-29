@@ -1,0 +1,4 @@
+Chromosome	Position	REF	ALT	SAMPLE	ref_sequence	alt_sequence
+chr_test	22	G	A	0|1	CGT	CAT
+chr_test	25	T	TA	0|1	TAT	TAAT
+chr_test	29	G	A	1|1	TGC	TAC
