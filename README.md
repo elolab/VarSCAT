@@ -32,8 +32,8 @@ The VCF file should be indexed if only specific locations need to be analyzed (h
 **Parse variants for several locations in a bed file**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --adjacent 1 --flank 1 --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_bed`<br />
 **Output flanking bases of variants and tandem repeat regions with default setting** <br />
-If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.<br />
 `python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_TR`
+If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.<br />
 
 ### To get help page of the tool: 
 **Main:** `python VarSCAT.py -h`<br />
