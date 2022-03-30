@@ -35,7 +35,7 @@ The VCF file should be indexed if only specific locations need to be analyzed (h
 `python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_TR`<br />
 If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.<br />
 
-### To get help page of the tool: 
+### To get help page of VarSCAT: 
 **Main:** `python VarSCAT.py -h`<br />
 ```
 -A,--Ambiguity: ambigious variants analysis module
