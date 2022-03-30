@@ -75,16 +75,16 @@ Optional parameters:
 --location: a genome location need to be parsed (format chrx:xxxx-xxxx)
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
 Advanced parameters:
---min_unit: the minimun size of tandem repeat motif (default=1)
---max_unit: the maximum size of tandem repeat motif (default=6, larger size will increase the running time)
---min_time: the minimun repeat time to call a tandem repeat (default=4) 
---match: the match score for local sequence context pairwise alignment algorithm (default=1)
---mismatch: the mismatch score for local sequence context pairwise alignment algorithm (default=-1)
---gap: the gap penalty for local sequence context pairwise alignment algorithm (default=-2)
---align_continue: the minimum similarity between potential repeat units that allows pairwise alignment algorithm to continue (default=100, means 100% similarity)
---gap_continue: the maximum tolerated gap size (bp) between potential repeat units that allows pairwise alignment algorithm to continue (default=0, -1 for maximum gap of motif size -1)
---min_score: the minimum alignment score of a tandem repeat (default=10, set according "--match","--mismatch","-gap")
---min_match_per: the minimum match percentage of a tandem repeat (default=100, means 100% of matches)
+--min_unit: the minimun size of tandem repeat motifs (default=1)
+--max_unit: the maximum size of tandem repeat motifs (default=6, larger size will increase the running time)
+--min_time: the minimun copy number to call a tandem repeat region (default=4) 
+--match: the match score for motifs aligned with a potential tandem repeat region (default=1)
+--mismatch: the mismatch score for motifs aligned with a potential tandem repeat region (default=-1)
+--gap: the gap penalty for for motifs aligned with a potential tandem repeat region (default=-2)
+--align_continue: the minimum similarity between potential repeat units (default=100, means 100% similarity)
+--gap_continue: the maximum tolerated gap size (bp) between potential repeat units (default=0, -1 for maximum gap of motif size -1)
+--min_score: the minimum alignment sum score for a tandem repeat region (default=10, set according "--match","--mismatch","-gap")
+--min_match_per: the minimum match percentage for a tandem repeat region (default=100, means 100% of matches)
 
 -h,--help: help page
 ```
