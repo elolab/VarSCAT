@@ -81,8 +81,8 @@ Advanced parameters:
 --match: the match score for motifs aligned with a potential tandem repeat region (default=1)
 --mismatch: the mismatch score for motifs aligned with a potential tandem repeat region (default=-1)
 --gap: the gap penalty for for motifs aligned with a potential tandem repeat region (default=-2)
---align_continue: the minimum similarity between potential repeat units (default=100, means 100% similarity)
---gap_continue: the maximum tolerated gap size (bp) between potential repeat units (default=0, -1 for maximum gap of motif size -1)
+--similarity: the minimum similarity between potential repeat units (default=100, means 100% similarity)
+--gap_tolerate: the maximum tolerated gap size (bp) between potential repeat units (default=0, -1 for maximum gap of motif size -1)
 --min_score: the minimum alignment sum score for a tandem repeat region (default=10, set according "--match","--mismatch","-gap")
 --min_match_per: the minimum match percentage for a tandem repeat region (default=100, means 100% of matches)
 
