@@ -37,6 +37,12 @@ If two modules are used together, the commom parameters '--vcf','--reference','-
 
 ### To get help page of the tool: 
 **Main:** `python VarSCAT.py -h`<br />
+```
+-A,--Ambiguity: ambigious variants analysis module
+-T,--TR: tandem repeat region variants analysis module
+-h,--help: help page
+Two modules can be used together or separate
+```
 **Ambiguous variants analysis module:** `python VarSCAT.py -A -h`<br />
 ```
 Ambigious variants analysis module:
