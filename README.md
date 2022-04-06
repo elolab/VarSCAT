@@ -1,7 +1,6 @@
 # VarSCAT: The Variants Sequence Context Analysis Toolkit
 ## Introduction
 VarSCAT is an open-source, a command-line based tool written in Python for analyzing variant sequence context. VarSCAT takes a VCF file as input, together with a reference sequence, to give various information about sequence context of normalized variants. **The ambiguous variants analysis module** has functions to give breakpoint ambiguous information about 5’ aligned positions, 3’ aligned positions, effected regions of variants, HGVS nomenclature, distance to 3’ direction adjacent variants and flanking bases of REF and ALT. With a given genomic coordinates, VarSCAT could output sequences of original reference sequence and sequence that contain variants, as well as its complementary sequence. **The tandem repeat region variants analysis module** can analyze sequence context around variants and annotate putative tandem repeat regions that contain variants with user defined parameters for purity, composition, and size of putative tandem repeats.<br />
-![Github_Fig](/uploads/9dee20cc7f18d0ea26de2cb5fbecf6f7/Github_Fig.png)
 <img src="/uploads/9dee20cc7f18d0ea26de2cb5fbecf6f7/Github_Fig.png"  width="120" height="120">
 
 ## Dependencies:
