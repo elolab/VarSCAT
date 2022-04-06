@@ -25,7 +25,7 @@ Because of dependency, the speed of reading bgzip reference fasta is slower than
 The reference sequence file should be indexed with samtools (http://www.htslib.org/doc/samtools-faidx.html)<br />
 The VCF file should be indexed if only specific locations need to be analyzed (http://www.htslib.org/doc/tabix.html)<br />
 ### Examples with test files in data folder
-**Output 5' align positions, 3' align positions, 3' edge positions, HGVS nomenclature, flanking bases of variants and distance to 3' variants**<br />
+**Output 5' align positions, 3' align positions, 3' edge positions, flanking bases of variants, HGVS nomenclature and distance to 3' variants**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --adjacent 1 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output`<br />
 ```
 Chromosome	Position	REF	ALT	SAMPLE	5'_aligned	3'_aligned	3'_edge	ref_sequence	alt_sequence	HGVS	distance_3_nearest_Var(bp)
@@ -41,10 +41,30 @@ chr_test	78	T	C	0|1	78	78	78	GTA	GCA	chr_test:g.78T>C
 ```
 **Output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location**<br />
 `python VarSCAT.py -A --mut_seq 1 --complement 1 --location chr_test:20-30 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_location`<br />
+```
+>Ref_seq chr_test:20-30
+ACGTATATTGC
+>Mut_seq chr_test_22_G_A / chr_test_25_T_TA / chr_test_29_G_A / 
+ACATATAATTAC
+>Reverse_complement_Mut_seq Reverse complement of mutated sequence
+GTAATTATATGT
+```
 **Parse variants for several locations in a bed file**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --adjacent 1 --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_bed`<br />
 **Output flanking bases of variants and tandem repeat regions with default setting** <br />
 `python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_TR`<br />
+```
+Chromosome	Position	REF	ALT	SAMPLE	ref_sequence	alt_sequence	Motifs	Copy_number	Size	Start	End	Repeat_Score	Alignment_Score	Match%	Mismatch%	Gap%	Repeat_GC%
+chr_test	22	G	A	0|1	CGT	CAT											
+chr_test	25	T	TA	0|1	TAT	TAAT											
+chr_test	29	G	A	1|1	TGC	TAC											
+chr_test	32	G	A	1|1	AGT	AAT											
+chr_test	35	GTA	G	0|1	GTATATATATATATATC	G - -TATATATATATATC	TA	7	2	36	49	7.0	14.0	100.0	0.0	0.0	0.0%
+chr_test	53	C	G	1|1	ACG	AGG											
+chr_test	56	G	T	1|1	AGT	ATT											
+chr_test	59	CA	C	0|1	CAAAAAAAAAAAAAAAAG	C -AAAAAAAAAAAAAAAG	A	16	1	60	75	16.0	16.0	100.0	0.0	0.0	0.0%
+chr_test	78	T	C	0|1	GTA	GCA											
+```
 If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.<br />
 
 ### To get help page of VarSCAT: 
