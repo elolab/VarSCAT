@@ -22,7 +22,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for analy
 
 ## Usage:
 ### Notes
-Because of dependency, the speed of reading bgzip reference fasta is slower than plain fasta. **The plain fasta** is recommended at the moment.<br />
+Because of dependency, the speed of reading bgzip reference fasta is slower than plain fasta. **The plain fasta is recommended** at the moment.<br />
 The reference sequence file should be indexed with samtools (http://www.htslib.org/doc/samtools-faidx.html)<br />
 The VCF file should be indexed if only specific locations need to be analyzed (http://www.htslib.org/doc/tabix.html)<br />
 ### Examples with test files in data folder
