@@ -1,6 +1,6 @@
-# VarSCAT: The Variants Sequence Context Analysis Toolkit
+# VarSCAT: The Variants Sequence Context Annotation Toolkit
 ## Introduction
-VarSCAT is an open-source, a command-line based tool written in Python for analyzing variant sequence context. VarSCAT takes a VCF file as input, together with a reference sequence, to give various information about sequence context of normalized variants. **The ambiguous variants analysis module** has functions to give breakpoint ambiguous information about 5’ aligned positions, 3’ aligned positions, effected regions of variants, HGVS nomenclature, distance to 3’ direction adjacent variants and flanking bases of REF and ALT. With a given genomic coordinates, VarSCAT could output sequences of original reference sequence and sequence that contain variants, as well as its complementary sequence. **The tandem repeat region variants analysis module** can analyze sequence context around variants and annotate putative tandem repeat regions that contain variants with user defined parameters for purity, composition, and size of putative tandem repeats.<br />
+VarSCAT is an open-source, a command-line based tool written in Python for annotating variant sequence context. VarSCAT takes a VCF file as input, together with a reference sequence, to give various information about sequence context of normalized variants. **The ambiguous variants annotation module** has functions to give breakpoint ambiguous information about 5’ aligned positions, 3’ aligned positions, effected regions of variants, HGVS nomenclature, distance to 3’ direction adjacent variants and flanking bases of REF and ALT. With a given genomic coordinates, VarSCAT could output sequences of original reference sequence and sequence that contain variants, as well as its complementary sequence. **The tandem repeat region variants annotation module** can analyze sequence context around variants and annotate putative tandem repeat regions that contain variants with user defined parameters for purity, composition, and size of putative tandem repeats.<br />
 <p align="center">
 <img src="image.png" style="width: 100%; height: 90%"/>
 </p>
@@ -82,14 +82,14 @@ If two modules are used together, the commom parameters '--vcf','--reference','-
 ### To get help page of VarSCAT: 
 **Main:** `python VarSCAT.py -h`<br />
 ```
--A,--Ambiguity: ambigious variants analysis module
--T,--TR: tandem repeat region variants analysis module
+-A,--Ambiguity: ambigious variants annotation module
+-T,--TR: tandem repeat region variants annotation module
 -h,--help: help page
 Two modules can be used together or separate
 ```
-**Ambiguous variants analysis module:** `python VarSCAT.py -A -h`<br />
+**Ambiguous variants annotation module:** `python VarSCAT.py -A -h`<br />
 ```
-Ambigious variants analysis module:
+Ambigious variants annotation module:
 Required parameters:
 --vcf: a input VCF file (The VCF file should be indexed if --location or --bed is activated, a tbi file of the VCF is required)
 --reference: a input reference sequence fasta file (a fai index file is required)
@@ -107,9 +107,9 @@ Optional parameters:
 
 -h,--help: help page
 ```
-**Tandam repeat region variants analysis module:** `python VarSCAT.py -T -h`<br />
+**Tandam repeat region variants annotation module:** `python VarSCAT.py -T -h`<br />
 ```
-Tandem repeat region variants analysis module:
+Tandem repeat region variants annotation module:
 Required parameters:
 --vcf: input VCF file (The VCF file should be indexed if --location or --bed is activated, a tbi file of the VCF is required)
 --reference: input reference sequence file (a fai index file is required)
