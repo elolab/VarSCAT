@@ -31,10 +31,10 @@ def main():
 	try:
 		options, remainder = getopt.gnu_getopt(sys.argv[1:], 'ATh',['Ambiguity','TR','help','vcf=','reference=','location=','bed=','based=','output=','LRP=','HGVS=','flank=','mut_seq=','adjacent=','complement=','min_unit=','max_unit=','min_time=','min_match_per=','gap_tolerate=','min_score=','match=','mismatch=','gap=','similarity='])		
 		if len(sys.argv[1:])==1 and ('-h' in sys.argv[1:] or '--help' in sys.argv[1:]):
-			print('''VarSCAT: Variant Sequence Context Analysis Toolkit (v1.0.0)
+			print('''VarSCAT: Variant Sequence Context Annotation Toolkit (v1.0.0)
 Help main:
--A,--Ambiguity: ambigious variants analysis module
--T,--TR: tandem repeat region variants analysis module
+-A,--Ambiguity: ambigious variants annotation module
+-T,--TR: tandem repeat region variants annotation module
 -h,--help: help page
 
 Two modules can be used together or separate
@@ -42,8 +42,8 @@ If two modules are used together, the commom parameters '--vcf','--reference','-
 ''')	
 			sys.exit(2)	
 		if ('-A' in sys.argv[1:] or '--Ambiguity' in sys.argv[1:]) and ('-h' in sys.argv[1:] or '--help' in sys.argv[1:]):
-			print('''VarSCAT: Variant Sequence Context Analysis Toolkit (v1.0.0)
-Ambigious variants analysis module:
+			print('''VarSCAT: Variant Sequence Context Annotation Toolkit (v1.0.0)
+Ambigious variants annotation module:
 Required parameters:
 --vcf: input VCF file 
 --reference: input reference sequencing file
@@ -65,8 +65,8 @@ Optional parameters:
 			sys.exit(2)
 
 		if ('-T' in sys.argv[1:] or '--TR' in sys.argv[1:]) and ('-h' in sys.argv[1:] or '--help' in sys.argv[1:]):	
-			print('''VarSCAT: Variant Sequence Context Analysis Toolkit (v1.0.0)
-Tandem repeat region variants analysis module:
+			print('''VarSCAT: Variant Sequence Context Annotation Toolkit (v1.0.0)
+Tandem repeat region variants annotation module:
 Required parameters:
 --vcf: input VCF file 
 --reference: input reference sequencing file
@@ -94,7 +94,7 @@ Advanced parameters:
 			sys.exit(2)
 		
 		start_time = datetime.datetime.now()
-		print("VarSCAT: Variant Sequence Context Analysis Toolkit"+"\n")
+		print("VarSCAT: Variant Sequence Context Annotation Toolkit"+"\n")
 		print("Program start at: "+str(start_time)+"\n")
 		print("Parameters:")
 		for opt,arg in options:
@@ -215,10 +215,10 @@ Advanced parameters:
 
 	except getopt.GetoptError:
 		print('''Getopt error! help:
-VarSCAT: Variant Sequence Context Analysis Toolkit (v1.0.0)
+VarSCAT: Variant Sequence Context Annotation Toolkit (v1.0.0)
 Help main:
--A,--Ambiguity: ambigious variants analysis module
--T,--TR: tandem repeat region variants analysis module
+-A,--Ambiguity: ambigious variants annotation module
+-T,--TR: tandem repeat region variants annotation module
 -h,--help: help page
 
 Two modules can be used together or separate.
