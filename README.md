@@ -26,7 +26,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 ### Notes
 Because of dependency, the speed of reading bgzip reference fasta is slower than plain fasta. **The plain fasta is recommended** at the moment.<br />
 The reference sequence file should be indexed with samtools (http://www.htslib.org/doc/samtools-faidx.html)<br />
-The VCF file should be indexed if only specific locations need to be analyzed (http://www.htslib.org/doc/tabix.html)<br />
+The VCF file should be indexed if specific locations need to be analyzed (http://www.htslib.org/doc/tabix.html)<br />
 ### Examples with test files in data folder
 **Output 5' align positions, 3' align positions, 3' edge positions, flanking bases of variants, HGVS nomenclature and distance to 3' variants**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --adjacent 1 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output`<br />
