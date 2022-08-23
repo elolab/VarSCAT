@@ -14,7 +14,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 #### Dependencies:
 **Currently tested on CentOS 7.9**<br />
 
-**If Python 3.6.8** <br />
+**If Python<3.7** <br />
 1. PyVCF3>=1.0.2 (https://pypi.org/project/PyVCF3/) 
 2. Biopython>=1.72 (https://biopython.org/)
 3. Pandas==1.1.5, lastest version on python3.6 (https://pandas.pydata.org/pandas-docs/version/1.1.5/)
@@ -23,7 +23,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 6. pyfaidx==0.6.4, lastest version on python3.6 (https://pypi.org/project/pyfaidx/0.6.4/)
 7. packaging>=21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta.)<br />
 
-**If Python 3.7+**<br /> 
+**If Python>3.7**<br /> 
 1. PyVCF3>=1.0.2 (https://pypi.org/project/PyVCF3/) 
 2. Biopython>=1.72 (https://biopython.org/)
 3. Pandas>=1.1.5 (https://pandas.pydata.org/pandas-docs/version/1.1.5/)
