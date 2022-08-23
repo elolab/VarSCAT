@@ -14,7 +14,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 #### Dependencies:
 **Currently tested on CentOS 7.9**<br />
 1. Python 3.6.8 (https://www.python.org/)
-2. PyVCF>=1.0.2 (https://pyvcf.readthedocs.io/en/latest/) 
+2. PyVCF3>=1.0.2 (https://pypi.org/project/PyVCF3/) 
 3. Biopython>=1.72 (https://biopython.org/)
 4. Pandas>=1.1.5 (https://pandas.pydata.org/)
 5. pysam>=0.18.0 (https://pysam.readthedocs.io/en/latest/index.html)
