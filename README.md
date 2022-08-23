@@ -12,7 +12,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 `conda env create -f environment.yml`<br />
 `conda activate VarSCAT`<br />
 #### Dependencies:
-**Currently tested on CentOS 7.9**<br />
+**Currently tested on CentOS 7.9 and ubuntu 20.04, Windows is not supported due to dependencies**<br />
 
 **If Python>3.7**<br /> 
 1. PyVCF3>=1.0.2 (https://pypi.org/project/PyVCF3/) 
