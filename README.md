@@ -16,10 +16,10 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 1. Python 3.6.8 (https://www.python.org/)
 2. PyVCF3>=1.0.2 (https://pypi.org/project/PyVCF3/) 
 3. Biopython>=1.72 (https://biopython.org/)
-4. Pandas>=1.1.5 (https://pandas.pydata.org/)
+4. Pandas==1.1.5 (https://pandas.pydata.org/pandas-docs/version/1.1.5/)
 5. pysam>=0.18.0 (https://pysam.readthedocs.io/en/latest/index.html)
-6. ordered-set>=4.0.2 (https://github.com/rspeer/ordered-set)
-7. pyfaidx>=0.6.4 (https://pypi.org/project/pyfaidx/)
+6. ordered-set==4.0.2 (https://pypi.org/project/ordered-set/4.0.2/)
+7. pyfaidx==0.6.4 (https://pypi.org/project/pyfaidx/0.6.4/)
 8. packaging>=21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta.)
 
 ## Usage:
