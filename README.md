@@ -8,6 +8,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 ## Dependencies:
 #### Install dependencies: 
 `pip install -r requirements.txt`<br />
+`install bedtools (https://daler.github.io/pybedtools/main.html)`<br />
 #### For conda:
 `conda env create -f environment.yml`<br />
 `conda activate VarSCAT`<br />
@@ -126,7 +127,7 @@ Advanced parameters:
 --mismatch: the mismatch score for motifs aligned with a potential tandem repeat region (default=-1)
 --gap: the gap penalty for for motifs aligned with a potential tandem repeat region (default=-2)
 --similarity: the minimum similarity between potential repeat units (default=100, means 100% similarity)
---gap_tolerate: the maximum tolerated gap size (bp) between potential repeat units (default=0, (default=0, set -1 for maximum gap of (motif size -1)bp))
+--gap_tolerate: the maximum tolerated gap size (bp) between potential repeat units (default=0, (default=0, set -1 for maximum gap of motif size bp))
 --min_score: the minimum alignment sum score for a tandem repeat region (default=10, set according "--match","--mismatch","-gap")
 --min_match_per: the minimum match percentage for a tandem repeat region (default=100, means 100% of matches)
 
