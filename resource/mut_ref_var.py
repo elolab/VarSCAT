@@ -10,7 +10,10 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 	start=int(coordinates.split("-")[0])-based 
 	end=int(coordinates.split("-")[1])-based
 
-	line3=""
+	#line3=""
+	n_snv=0
+	n_del=0
+	n_ins=0
 	for i in range(0,len(df)):
 		if i==0:
 			if start<int(df[i][1])-based: 
@@ -19,8 +22,8 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 				mut_seq=""
 			mut_seq_T=df[i][3]
 			mut_seq=mut_seq+mut_seq_T
-			line3=line3+df[i][0]+"_"+df[i][1]+"_"+df[i][2]+"_"+df[i][3]
-			line3=line3+" / "
+			#line3=line3+df[i][0]+"_"+df[i][1]+"_"+df[i][2]+"_"+df[i][3]
+			#line3=line3+" / "
 			start_Next = int(df[i][1])-based+len(df[i][2])
 			if (i+1)==len(df):
 				if start_Next>end:
@@ -32,6 +35,14 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 					mut_seq_T2=ref[start_Next:end+1]
 					mut_seq=mut_seq+mut_seq_T2
 					mut_seq=mut_seq.upper()
+			if len(df[i][2])==len(df[i][3]):
+				n_snv=n_snv+1
+			elif len(df[i][2])>len(df[i][3]):
+				n_del=n_del+1
+			elif len(df[i][2])<len(df[i][3]):
+				n_ins=n_ins+1
+			
+			
 
 		else:
 			mut_seq_T2=ref[start_Next:int(df[i][1])-based]
@@ -39,8 +50,8 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 			
 			mut_seq_T=df[i][3]
 			mut_seq=mut_seq+mut_seq_T
-			line3=line3+df[i][0]+"_"+df[i][1]+"_"+df[i][2]+"_"+df[i][3]
-			line3=line3+" / "
+			#line3=line3+df[i][0]+"_"+df[i][1]+"_"+df[i][2]+"_"+df[i][3]
+			#line3=line3+" / "
 			start_Next = int(df[i][1])-1+len(df[i][2])
 		
 			if i==len(df)-1:
@@ -53,6 +64,14 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 					mut_seq_T2=ref[start_Next:end+1]
 					mut_seq=mut_seq+mut_seq_T2
 					mut_seq=mut_seq.upper()
+			if len(df[i][2])==len(df[i][3]):
+				n_snv=n_snv+1
+			elif len(df[i][2])>len(df[i][3]):
+				n_del=n_del+1
+			elif len(df[i][2])<len(df[i][3]):
+				n_ins=n_ins+1
+	
+	line3=loc+" "+"SNV="+str(n_snv)+" "+"INS="+str(n_ins)+" "+"DEL="+str(n_del)
 	
 	records = []
 	rec1 = SeqRecord(Seq(ref[start:end+1].upper(),),id="Ref_seq",description=loc,)
@@ -61,9 +80,10 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 	records.append(rec2)
 
 	if complement=="1":
-		rec3 = SeqRecord(Seq(mut_seq).reverse_complement(),id="Reverse_complement_Mut_seq",description="Reverse complement of mutated sequence",)
+		rec3 = SeqRecord(Seq(mut_seq).reverse_complement(),id="Reverse_complement_Mut_seq",description=".",)
 		mut_seq = str(rec3.seq)
 		records.append(rec3.upper())		
 	
 	name = output+"_Mutation_sequence.fa"
 	SeqIO.write(records, name, "fasta")
+

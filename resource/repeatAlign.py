@@ -2,8 +2,7 @@ from Bio.Seq import Seq
 from Bio import motifs
 
 def diff_letters(a,b):
-	diff = sum(a[i]!=b[i] for i in range(len(a)))
-	common = len(a)-diff
+	common = sum(a[i]==b[i] for i in range(len(a)))
 	return common
 
 def alignment_pattern(PS,SZ,RF,PR,DIR,SZ_E): 
@@ -50,9 +49,7 @@ def count_minisatellite(pattern_start,potential_R,search_size,ref,based,mperiod,
 	memory_pattern_list = [potential_R] 
 
 	num_gap_R = []
-	num_mismatch_R = [0]
 	num_gap_L = []
-	num_mismatch_L = []
 	
 	E_L=[repeat_end]
 	S_L=[repeat_start]
@@ -63,8 +60,6 @@ def count_minisatellite(pattern_start,potential_R,search_size,ref,based,mperiod,
 			memory_pattern_list.append(Align_inner[2])
 		
 			num_gap_R.append(Align_inner[1])
-			mismatch_num= search_size-Align_inner[0]
-			num_mismatch_R.append(mismatch_num)
 			
 			if len(memory_pattern_list) > 4: 
 				m = motifs.create(memory_pattern_list)
@@ -85,9 +80,7 @@ def count_minisatellite(pattern_start,potential_R,search_size,ref,based,mperiod,
 		if "N" not in Align_inner[2]:
 			memory_pattern_list.append(Align_inner[2])
 
-			num_gap_L.append(Align_inner[1])
-			mismatch_num= search_size-Align_inner[0]
-			num_mismatch_L.append(mismatch_num)			
+			num_gap_L.append(Align_inner[1])		
 			
 			if len(memory_pattern_list) > 4:
 				m = motifs.create(memory_pattern_list)
@@ -107,18 +100,13 @@ def count_minisatellite(pattern_start,potential_R,search_size,ref,based,mperiod,
 
 	if (repeat_start != repeat_start1 or repeat_end != repeat_end1) and repeat_time >=mperiod:
 		num_gap=num_gap_L[::-1]+num_gap_R
-		num_mismatch=num_mismatch_R+num_mismatch_L
-
-		score_R = diff_letters(potential_R0, potential_R)
-		mismatch_num= search_size-score_R
-		num_mismatch.insert(0,mismatch_num)
-		for i in range(1,4):
+		memory_pattern_list=memory_pattern_list[len(num_gap_R)+1:][::-1]+memory_pattern_list[0:len(num_gap_R)+1]
+		num_mismatch=[]
+		for i in range(0,len(memory_pattern_list)):
 			score_R = diff_letters(memory_pattern_list[i], potential_R)
 			mismatch_num= search_size-score_R
-			num_mismatch.insert(1,mismatch_num)
-		del num_mismatch[4:8]
-		num_mismatch=num_mismatch[len(num_mismatch_R):][::-1]+num_mismatch[0:len(num_mismatch_R)]
-
+			num_mismatch.append(mismatch_num)
+		
 		sum_mismatch=sum(num_mismatch)
 		sum_gap=sum(num_gap)
 		T_MS=float(sum_mismatch)/repeat_length
@@ -132,58 +120,70 @@ def count_minisatellite(pattern_start,potential_R,search_size,ref,based,mperiod,
 
 def trim_repeat(RL,MT,MP,M_score,MIS_score,G_score,ASC,BS):
 	R_DF = []
-	S_L=RL[10]
+	S_L=RL[10][::-1]
 	E_L=RL[11]
-	S_L1=S_L[0] 
-	E_L1=E_L[0]
-	MM_R=RL[13][len(S_L)-1:] 
-	MM_L=RL[13][0:len(S_L)-1]
-	MM_L.append(MM_R[0])
-	GP_R=RL[14][len(S_L)-1:] 
-	GP_L=RL[14][0:len(S_L)-1]
+	L_marker=["S"]*len(S_L)+["E"]*len(E_L)
+	L_L=S_L+E_L
+	MM_L=RL[13]
+	GP_L=RL[14]
+	P_L=RL[12]
 	RT=RL[1]
-	P_R=RL[12][0:len(E_L)]
-	P_L=RL[12][len(E_L):]
-	while len(GP_R)>0 and RT>=MT:
-		R_len=E_L[-1]-S_L1+1
-		MA=float(R_len-sum(MM_R)-sum(GP_R))/R_len	
-		if MA < MP: 
-			del MM_R[-1]		
-			RT=RT-1	
-			del GP_R[-1]		
-			P_R=P_R[:-1]
-			del E_L[-1]	
-		else:
-			break
 	
 	while len(GP_L)>0 and RT>=MT:
-		R_len=E_L1-S_L[-1]+1
-		MA=float(R_len-sum(MM_L)-sum(GP_L))/R_len	
-		if MA < MP:
-			del MM_L[0]
-			RT=RT-1
-			del GP_L[0]
+		if L_marker[-1]=="E" and L_marker[0]=="S":
+			R_len=L_L[-1]-L_L[0]+1
+		elif L_marker[-1]=="E" and L_marker[0]=="E":
+			R_len=L_L[-1]-L_L[0]
+		elif L_marker[-1]=="S" and L_marker[0]=="S":
+			R_len=L_L[-1]-L_L[0]
+		
+		MA=float(R_len-sum(MM_L)-sum(GP_L))/R_len
+		if MA >= MP:
+			sum_mismatch=sum(MM_L)
+			sum_gap=sum(GP_L)
+			AS=(R_len-sum_mismatch-sum_gap)*M_score+sum_mismatch*MIS_score+sum_gap*G_score
+			if AS >=ASC:
+				MM=float(sum_mismatch)/R_len
+				GP=float(sum_gap)/R_len	
+				RS = (float(AS)/R_len)*RT
+				m = motifs.create(P_L)
+				m1 = m.consensus
+				if L_marker[0] == "E":
+					 L_L[0]=L_L[0]+1
+				if L_marker[-1] == "S":
+					 L_L[-1]=L_L[-1]-1
+				R_DF=[m1.upper(),RT,RL[2],L_L[0]+BS,L_L[-1]+BS,RS,AS,MA,MM,GP]
+				
+				break
+		
+		next=0
+		while next<=(len(GP_L)/2):
+			penalty_L=MM_L[next]*MIS_score+GP_L[next]*G_score
+			penalty_R=MM_L[-next-1]*MIS_score+GP_L[-next-1]*G_score
+			if penalty_L > penalty_R:
+				del MM_L[-1]		
+				RT=RT-1	
+				del GP_L[-1]		
+				P_L=P_L[:-1]
+				del L_L[-1]
+				del L_marker[-1]
+				break
+			elif penalty_L < penalty_R:
+				del MM_L[0]
+				RT=RT-1
+				del GP_L[0]
+				P_L=P_L[1:]
+				del L_L[0]
+				del L_marker[0]
+				break
+			next=next+1
+		if next>(len(GP_L)/2):
+			del MM_L[-1]		
+			RT=RT-1	
+			del GP_L[-1]		
 			P_L=P_L[:-1]
-			del S_L[-1]
-		else:
-			break
-
-	if len(MM_L)>0:
-		del MM_L[-1]
-	
-	R_len=E_L[-1]-S_L[-1]+1
-	
-	if RT >= MT:
-		sum_mismatch=sum(MM_R+MM_L)
-		sum_gap=sum(GP_R+GP_L)
-		MA=float(R_len-sum_mismatch-sum_gap)/R_len	
-		AS=(R_len-sum_mismatch-sum_gap)*M_score+sum_mismatch*MIS_score+sum_gap*G_score
-		if AS >= ASC and MA >= MP:	 
-			MM=float(sum_mismatch)/R_len
-			GP=float(sum_gap)/R_len	
-			RS = (float(AS)/R_len)*RT
-			m = motifs.create(P_R+P_L)
-			m1 = m.consensus
-			R_DF=[m1.upper(),RT,RL[2],S_L[-1]+BS,E_L[-1]+BS,RS,AS,MA,MM,GP]
+			del L_L[-1]
+			del L_marker[-1]
 	
 	return R_DF
+	

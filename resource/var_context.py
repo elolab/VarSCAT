@@ -15,7 +15,7 @@ def mutation_seq(df,ref_file,based):
 				S = df[i][4]-1-based
 				E = df[i][6]+1+1-based
 				Ref_seq = ref[S:E].upper()
-				Mut_seq = ref[S].upper()+" -"*(len(df[i][2])-1)+ref[df[i][4]+len(df[i][2])-1-based:E].upper()	
+				Mut_seq = ref[S].upper()+"-"*(len(df[i][2])-1)+ref[df[i][4]+len(df[i][2])-1-based:E].upper()	
 				REF_seq.append(str(Ref_seq))
 				MUT_seq.append(str(Mut_seq))
 			elif df[i][2].upper()[0]!=df[i][3].upper()[0]:
