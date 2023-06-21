@@ -20,7 +20,10 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 4. pysam==0.18.0 (https://pysam.readthedocs.io/en/latest/index.html)
 5. ordered-set==4.0.2, lastest version on python3.6 (https://pypi.org/project/ordered-set/4.0.2/)
 6. pyfaidx==0.6.4, lastest version on python3.6 (https://pypi.org/project/pyfaidx/0.6.4/)
-7. packaging==21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta.)<br />
+7. packaging==21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta.)
+8. pybedtools==0.7.10 (http://daler.github.io/pybedtools/changes.html#changes-in-v0-7-10) 
+9. bedtools==2.30.0 (https://github.com/arq5x/bedtools2/releases/tag/v2.30.0)
+10. htslib==1.9 (https://github.com/samtools/htslib/releases/tag/1.9)<br />
 
 ## Usage:
 ### Notes
