@@ -23,8 +23,8 @@ for pip install, bedtools and htslib should be installed manually. So we recomme
 6. pyfaidx==0.6.4, lastest version on python3.6 (https://pypi.org/project/pyfaidx/0.6.4/)
 7. packaging==21.3 (This dependency is for pyfaidx to read bgzip compressed reference fasta.)
 8. pybedtools==0.7.10 (http://daler.github.io/pybedtools/changes.html#changes-in-v0-7-10) 
-9. bedtools==2.30.0 (https://github.com/arq5x/bedtools2/releases/tag/v2.30.0)
-10. htslib==1.9 (https://github.com/samtools/htslib/releases/tag/1.9)<br />
+9. bedtools==2.30.0 (https://github.com/arq5x/bedtools2/tree/v2.30.0)
+10. htslib==1.9 (https://github.com/samtools/htslib/tree/1.9)<br />
 
 ## Usage:
 ### Notes
