@@ -6,11 +6,12 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 </p>
 
 ## Dependencies:
-#### Install dependencies: 
-`pip install -r requirements.txt`<br />
 #### For conda:
 `conda env create -f environment.yml`<br />
 `conda activate VarSCAT`<br />
+#### Install dependencies: 
+`pip install -r requirements.txt`<br />
+for pip install, bedtools and htslib should be installed manually. So we recommended install VarSCAT with conda.
 #### Dependencies:
 **Currently tested on CentOS 7.9 and ubuntu 20.04, Windows is not supported due to dependencies**<br />
 **VarSCAT were tested with python 3.6.8 and the versions of dependencies are listed as follows**<br />
