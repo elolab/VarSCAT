@@ -1,0 +1,6 @@
+>Ref_seq chr_test:20-30
+ACGTATATTGC
+>Mut_seq chr_test:20-30 SNV=2 INS=1 DEL=0
+ACATATAATTAC
+>Reverse_complement_Mut_seq .
+GTAATTATATGT
