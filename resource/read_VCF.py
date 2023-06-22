@@ -112,7 +112,6 @@ def read_vcf(vcf_file,location,bed,ref_file,based,output):
 		
 		if len(variant_list)==0:
 			print("WARNING: No variant in the selected region "+chromosome_read+":"+start_read+"-"+end_read)
-			#sys.exit(2)
 
 	elif len(location) == 0 and len(bed) != 0:
 		bed_file=open(bed,"r")
@@ -157,7 +156,6 @@ def read_vcf(vcf_file,location,bed,ref_file,based,output):
 		else:
 			variant_list_df.append(variant_list[i])
 	
-	# LRP remove to preprocess, because all the -A functions needs it and I decided that variant site for -T, it should be equivalent indel regions
 	item_LRP = LRP(variant_list_df,ref_file,based)
 	variant_list_df_lrp=[]
 	variant_list_df_lrp.append(item_LRP[0])
@@ -184,7 +182,7 @@ def complex_module(df,df_lrp,ref,bas,lrp,HGVS,fla,loc,ibed,Mut,nei,com,anno,samp
 			df2_header.append("ref_sequence")
 			df2_header.append("alt_sequence")
 		
-		if Mut=="1":# and len(samples)==1:
+		if Mut=="1":
 			item_mutref = mut_ref(df,loc,ref,com,bas,output)
 
 		if HGVS=="1":
@@ -197,7 +195,7 @@ def complex_module(df,df_lrp,ref,bas,lrp,HGVS,fla,loc,ibed,Mut,nei,com,anno,samp
 			df2.append(item_complex)
 			df2_header.append("distance_3_nearest_Var(bp)")
 		
-		if anno!="": #and (loc!="" or ibed!=""):
+		if anno!="":
 			anno = anno.split(",")
 			for i in range(0,len(anno)):
 				item_anno = custom_anno(df,loc,ibed,anno[i])
