@@ -18,8 +18,8 @@ def annotate_region(bedin_input,df_input):
 				else:
 					info_string=info_string+ann[j][m]
 			if j<(len(ann)-1) and len(ann)!=1:
-				location_string=location_string+"; "
-				info_string=info_string+"; "
+				location_string=location_string+";"
+				info_string=info_string+";"
 		location_list.append(location_string)
 		info_list.append(info_string)
 	
