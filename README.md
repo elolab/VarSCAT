@@ -5,11 +5,11 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 <img src="image.png" style="width: 100%; height: 90%"/>
 </p>
 
-## Dependencies:
+## Install dependencies:
 #### For conda:
 `conda env create -f environment.yml`<br />
 `conda activate VarSCAT`<br />
-#### Install dependencies: 
+#### For others: 
 `pip install -r requirements.txt`<br />
 for pip install, bedtools and htslib should be installed manually. So we recommended install VarSCAT with conda.
 #### Dependencies:
