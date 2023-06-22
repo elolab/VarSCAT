@@ -1,7 +1,0 @@
-Chromosome	Position	REF	ALT	SAMPLE	5'_aligned	3'_aligned	3'_edge	ref_sequence	alt_sequence	HGVS	distance_3_nearest_Var(bp)
-chr_test	22	G	A	0|1	22	22	22	CGT	CAT	chr_test:g.22G>A	3
-chr_test	25	T	TA	0|1	25	26	26	TAT	TAAT	chr_test:g.26dup	3
-chr_test	29	G	A	1|1	29	29	29	TGC	TAC	chr_test:g.29G>A	24
-chr_test	53	C	G	1|1	53	53	53	ACG	AGG	chr_test:g.53C>G	3
-chr_test	56	G	T	1|1	56	56	56	AGT	ATT	chr_test:g.56G>T	4
-chr_test	59	CA	C	0|1	60	75	75	CAAAAAAAAAAAAAAAAG	C -AAAAAAAAAAAAAAAG	chr_test:g.75del	
