@@ -1,4 +1,4 @@
-name: VarSCAT_site
+name: VarSCAT
 channels: 
 - conda-forge
 - bioconda
