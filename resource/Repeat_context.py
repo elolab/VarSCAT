@@ -5,7 +5,6 @@ from .read_reference import read_reference_sequence
 from .copy_change import check_copy
 
 def sizing_window(start,end,R_string2,A_string2,Ref2,min_size2,max_size2,min_time2,min_per2,alignAS2,based2,Mscore2,MIscore2,OGscore2,Rcheck2,S_except2):
-	# variant site should be equivalent regions
 	if R_string2[0]==A_string2[0] and len(R_string2) < len(A_string2):
 		start = int(start)-based2
 	else:
@@ -45,11 +44,9 @@ def sliding_window_mini(window_size,V_start,V_end,b,alignAS3,based3,min_time3,mi
 	for j in range(V_start-window_size+1,V_end+1):
 		V_pattern = b[j:j+window_size]
 		
-		# skip if the same pattern have been searched
-		if j<=V_start:# This means pattern is not in permutated region anymore
+		if j<=V_start:
 			V_memo.append(V_pattern)
-		elif j>V_start and j<=V_end-window_size: # # This means pattern is in permutated region anymore, j>V_end-window_size means not in premutated region
-			# check if ther premutated pattern have been searched	
+		elif j>V_start and j<=V_end-window_size: 
 			if V_pattern == V_memo[len(V_memo)-window_size]:
 				continue
 			else:
