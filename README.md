@@ -70,16 +70,18 @@ chr_test        59      CA      C       .       0|1     60      75      75      
 **Output flanking bases of variants and tandem repeat regions with default setting** <br />
 `python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_TR`<br />
 ```
-Chromosome	Position	REF	ALT	SAMPLE	ref_sequence	alt_sequence	Motifs	Copy_number	Size	Start	End	Repeat_Score	Alignment_Score	Match%	Mismatch%	Gap%	Repeat_GC%
-chr_test	22	G	A	0|1	CGT	CAT											
-chr_test	25	T	TA	0|1	TAT	TAAT											
-chr_test	29	G	A	1|1	TGC	TAC											
-chr_test	32	G	A	1|1	AGT	AAT											
-chr_test	35	GTA	G	0|1	GTATATATATATATATC	G - -TATATATATATATC	TA	7	2	36	49	7.0	14.0	100.0	0.0	0.0	0.0%
-chr_test	53	C	G	1|1	ACG	AGG											
-chr_test	56	G	T	1|1	AGT	ATT											
-chr_test	59	CA	C	0|1	CAAAAAAAAAAAAAAAAG	C -AAAAAAAAAAAAAAAG	A	16	1	60	75	16.0	16.0	100.0	0.0	0.0	0.0%
-chr_test	78	T	C	0|1	GTA	GCA											
+Chromosome      Position        REF     ALT     ID      SAMPLE  ref_sequence    alt_sequence    Motifs  Copy_number     Size    Start   End     Repeat_Score    Alignment_Score Match%  Mismatch%       Gap%    Repeat_GC%      Copy_number_change
+chr_test        22      G       A       .       0|1     CGT CAT                                                                                             
+chr_test        25      T       TA      .       0|1     TAT     TAAT                                                                                            
+chr_test        29      G       A       .       1|1     TGC     TAC                                                                                             
+chr_test        32      G       A       .       1|1     AGT     AAT                                                                                             
+chr_test        35      GTA     G       .       0|1     GTATATATATATATATC       G--TATATATATATATC       TA      7       2       36      49      7.0     14.0    100.0   0.0     0.0
+     0.0     -1
+chr_test        53      C       G       .       1|1     ACG     AGG                                                                                             
+chr_test        56      G       T       .       1|1     AGT     ATT                                                                                             
+chr_test        59      CA      C       .       0|1     CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      A       16      1       60      75      16.0    16.0    100.0   0.0     0.0
+     0.0     -1
+chr_test        78      T       C       .       0|1     GTA     GCA 											
 ```
 If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.<br />
 
