@@ -10,7 +10,6 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 	start=int(coordinates.split("-")[0])-based 
 	end=int(coordinates.split("-")[1])-based
 
-	#line3=""
 	n_snv=0
 	n_del=0
 	n_ins=0
@@ -22,8 +21,6 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 				mut_seq=""
 			mut_seq_T=df[i][3]
 			mut_seq=mut_seq+mut_seq_T
-			#line3=line3+df[i][0]+"_"+df[i][1]+"_"+df[i][2]+"_"+df[i][3]
-			#line3=line3+" / "
 			start_Next = int(df[i][1])-based+len(df[i][2])
 			if (i+1)==len(df):
 				if start_Next>end:
@@ -50,8 +47,6 @@ def mut_ref(df,loc,ref_file,complement,based,output):
 			
 			mut_seq_T=df[i][3]
 			mut_seq=mut_seq+mut_seq_T
-			#line3=line3+df[i][0]+"_"+df[i][1]+"_"+df[i][2]+"_"+df[i][3]
-			#line3=line3+" / "
 			start_Next = int(df[i][1])-1+len(df[i][2])
 		
 			if i==len(df)-1:
