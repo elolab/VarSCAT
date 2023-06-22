@@ -74,7 +74,7 @@ Optional parameters:
 --neighbor: output the distance to 3' direction nearest variant. (default=0, 0:false,1:true)
 --mut_seq: output the reference and mutated sequence based on variants. (default=0, 0:false,1:true. Note: valid with "--location")
 --complement: output the reverse complement sequence of mutated sequence. (default=0, 0:false,1:true. Note: valid with "--mut_seq")
---annotation: annotate variants with custom files in bed format. ("choromosome", "start", "end" are required. Additional information can be provided and annotated. Multiple bed files can be used, "custom.bed,custom2.bed". Note: valid with "--location" or "--bed")
+--annotation: annotate variants with custom files in bed format. ("choromosome", "start", "end" are required. Additional information can be provided and annotated. Multiple bed files can be used, "--annotation custom.bed,custom2.bed". Note: valid with "--location" or "--bed")
 
 -h,--help: help page.
 ''')
