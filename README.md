@@ -59,13 +59,13 @@ GTAATTATATGT
 **Parse variants for several locations in a bed file**<br />
 `python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --neighbor 1 --annotation ./data/custom.bed --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_bed`<br />
 ```
-Chromosome      Position        REF     ALT     ID      SAMPLE  5'_aligned      3'_aligned      3'_edge ref_sequence    alt_sequence    HGVS    distance_3_nearest_Var(bp)      Ann_loc Ann_info
-chr_test        22      G       A       .       0|1     22      22      22      CGT     CAT     chr_test:g.22G>A        3               
-chr_test        25      T       TA      .       0|1     25      26      26      TAT     TAAT    chr_test:g.26dup        3       chr_test:25-38  anno_A|anno_B
-chr_test        29      G       A       .       1|1     29      29      29      TGC     TAC     chr_test:g.29G>A        24      chr_test:25-38  anno_A|anno_B
-chr_test        53      C       G       .       1|1     53      53      53      ACG     AGG     chr_test:g.53C>G        3       chr_test:53-65  anno_B|anno_C
-chr_test        56      G       T       .       1|1     56      56      56      AGT     ATT     chr_test:g.56G>T        4       chr_test:53-65  anno_B|anno_C
-chr_test        59      CA      C       .       0|1     60      75      75      CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      chr_test:g.75del                chr_test:53-65  anno_B|anno_C	
+Chromosome      Position        REF     ALT     ID      SAMPLE  5'_aligned      3'_aligned      3'_edge ref_sequence    alt_sequence    HGVS    distance_3_nearest_Var(bp)      Ann_loc        Ann_info        Ann_loc_1       Ann_info_1
+chr_test        22      G       A       .       0|1     22      22      22      CGT     CAT     chr_test:g.22G>A        3                               
+chr_test        25      T       TA      .       0|1     25      26      26      TAT     TAAT    chr_test:g.26dup        3       chr_test:25-38  anno_A  chr_test:25-38  feature_1|anno_1
+chr_test        29      G       A       .       1|1     29      29      29      TGC     TAC     chr_test:g.29G>A        24      chr_test:25-38  anno_A  chr_test:25-38;chr_test:28-32          feature_1|anno_1;feature_2|anno_2
+chr_test        53      C       G       .       1|1     53      53      53      ACG     AGG     chr_test:g.53C>G        3       chr_test:53-65  anno_B  chr_test:53-65  feature_3|anno_3
+chr_test        56      G       T       .       1|1     56      56      56      AGT     ATT     chr_test:g.56G>T        4       chr_test:53-65  anno_B  chr_test:53-65  feature_3|anno_3
+chr_test        59      CA      C       .       0|1     60      75      75      CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      chr_test:g.75del                chr_test:53-65  anno_B         chr_test:53-65;chr_test:58-65   feature_3|anno_3;feature_4|anno_4	
 ```
 **Output flanking bases of variants and tandem repeat regions with default setting** <br />
 `python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_TR`<br />
