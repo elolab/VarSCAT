@@ -75,12 +75,10 @@ chr_test        22      G       A       .       0|1     CGT CAT
 chr_test        25      T       TA      .       0|1     TAT     TAAT                                                                                            
 chr_test        29      G       A       .       1|1     TGC     TAC                                                                                             
 chr_test        32      G       A       .       1|1     AGT     AAT                                                                                             
-chr_test        35      GTA     G       .       0|1     GTATATATATATATATC       G--TATATATATATATC       TA      7       2       36      49      7.0     14.0    100.0   0.0     0.0
-     0.0     -1
+chr_test        35      GTA     G       .       0|1     GTATATATATATATATC       G--TATATATATATATC       TA      7       2       36      49      7.0     14.0    100.0   0.0     0.0 0.0     -1
 chr_test        53      C       G       .       1|1     ACG     AGG                                                                                             
 chr_test        56      G       T       .       1|1     AGT     ATT                                                                                             
-chr_test        59      CA      C       .       0|1     CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      A       16      1       60      75      16.0    16.0    100.0   0.0     0.0
-     0.0     -1
+chr_test        59      CA      C       .       0|1     CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      A       16      1       60      75      16.0    16.0    100.0   0.0     0.0 0.0     -1
 chr_test        78      T       C       .       0|1     GTA     GCA 											
 ```
 If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.<br />
