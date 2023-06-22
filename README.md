@@ -33,39 +33,39 @@ The reference sequence file should be indexed with samtools (http://www.htslib.o
 The VCF file should be indexed if specific locations need to be analyzed (http://www.htslib.org/doc/tabix.html)<br />
 ### Examples with test files in data folder
 **Output 5' align positions, 3' align positions, 3' edge positions, flanking bases of variants, HGVS nomenclature and distance to 3' variants**<br />
-`python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --adjacent 1 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output`<br />
+`python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --neighbor 1 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output`<br />
 ```
-Chromosome	Position	REF	ALT	SAMPLE	5'_aligned	3'_aligned	3'_edge	ref_sequence	alt_sequence	HGVS	distance_3_nearest_Var(bp)
-chr_test	22	G	A	0|1	22	22	22	CGT	CAT	chr_test:g.22G>A	3
-chr_test	25	T	TA	0|1	25	26	26	TAT	TAAT	chr_test:g.26dup	3
-chr_test	29	G	A	1|1	29	29	29	TGC	TAC	chr_test:g.29G>A	3
-chr_test	32	G	A	1|1	32	32	32	AGT	AAT	chr_test:g.32G>A	4
-chr_test	35	GTA	G	0|1	36	49	50	GTATATATATATATATC	G - -TATATATATATATC	chr_test:g.37AT[6]	3
-chr_test	53	C	G	1|1	53	53	53	ACG	AGG	chr_test:g.53C>G	3
-chr_test	56	G	T	1|1	56	56	56	AGT	ATT	chr_test:g.56G>T	4
-chr_test	59	CA	C	0|1	60	75	75	CAAAAAAAAAAAAAAAAG	C -AAAAAAAAAAAAAAAG	chr_test:g.75del	3
-chr_test	78	T	C	0|1	78	78	78	GTA	GCA	chr_test:g.78T>C	
+Chromosome      Position        REF     ALT     ID      SAMPLE  5'_aligned      3'_aligned      3'_edge ref_sequence    alt_sequence    HGVS    distance_3_nearest_Var(bp)
+chr_test        22      G       A       .       0|1     22      22      22      CGT     CAT     chr_test:g.22G>A        3
+chr_test        25      T       TA      .       0|1     25      26      26      TAT     TAAT    chr_test:g.26dup        3
+chr_test        29      G       A       .       1|1     29      29      29      TGC     TAC     chr_test:g.29G>A        3
+chr_test        32      G       A       .       1|1     32      32      32      AGT     AAT     chr_test:g.32G>A        4
+chr_test        35      GTA     G       .       0|1     36      49      50      GTATATATATATATATC       G--TATATATATATATC       chr_test:g.37AT[6]      3
+chr_test        53      C       G       .       1|1     53      53      53      ACG     AGG     chr_test:g.53C>G        3
+chr_test        56      G       T       .       1|1     56      56      56      AGT     ATT     chr_test:g.56G>T        4
+chr_test        59      CA      C       .       0|1     60      75      75      CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      chr_test:g.75del        3
+chr_test        78      T       C       .       0|1     78      78      78      GTA     GCA     chr_test:g.78T>C	
 ```
 **Output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location**<br />
 `python VarSCAT.py -A --mut_seq 1 --complement 1 --location chr_test:20-30 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_location`<br />
 ```
 >Ref_seq chr_test:20-30
 ACGTATATTGC
->Mut_seq chr_test_22_G_A / chr_test_25_T_TA / chr_test_29_G_A / 
+>Mut_seq chr_test:20-30 SNV=2 INS=1 DEL=0
 ACATATAATTAC
->Reverse_complement_Mut_seq Reverse complement of mutated sequence
+>Reverse_complement_Mut_seq .
 GTAATTATATGT
 ```
 **Parse variants for several locations in a bed file**<br />
-`python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --adjacent 1 --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_bed`<br />
+`python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --neighbor 1 --annotation ./data/custom.bed --bed ./data/regions.bed --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_bed`<br />
 ```
-Chromosome	Position	REF	ALT	SAMPLE	5'_aligned	3'_aligned	3'_edge	ref_sequence	alt_sequence	HGVS	distance_3_nearest_Var(bp)
-chr_test	22	G	A	0|1	22	22	22	CGT	CAT	chr_test:g.22G>A	3
-chr_test	25	T	TA	0|1	25	26	26	TAT	TAAT	chr_test:g.26dup	3
-chr_test	29	G	A	1|1	29	29	29	TGC	TAC	chr_test:g.29G>A	24
-chr_test	53	C	G	1|1	53	53	53	ACG	AGG	chr_test:g.53C>G	3
-chr_test	56	G	T	1|1	56	56	56	AGT	ATT	chr_test:g.56G>T	4
-chr_test	59	CA	C	0|1	60	75	75	CAAAAAAAAAAAAAAAAG	C -AAAAAAAAAAAAAAAG	chr_test:g.75del	
+Chromosome      Position        REF     ALT     ID      SAMPLE  5'_aligned      3'_aligned      3'_edge ref_sequence    alt_sequence    HGVS    distance_3_nearest_Var(bp)      Ann_loc Ann_info
+chr_test        22      G       A       .       0|1     22      22      22      CGT     CAT     chr_test:g.22G>A        3               
+chr_test        25      T       TA      .       0|1     25      26      26      TAT     TAAT    chr_test:g.26dup        3       chr_test:25-38  anno_A|anno_B
+chr_test        29      G       A       .       1|1     29      29      29      TGC     TAC     chr_test:g.29G>A        24      chr_test:25-38  anno_A|anno_B
+chr_test        53      C       G       .       1|1     53      53      53      ACG     AGG     chr_test:g.53C>G        3       chr_test:53-65  anno_B|anno_C
+chr_test        56      G       T       .       1|1     56      56      56      AGT     ATT     chr_test:g.56G>T        4       chr_test:53-65  anno_B|anno_C
+chr_test        59      CA      C       .       0|1     60      75      75      CAAAAAAAAAAAAAAAAG      C-AAAAAAAAAAAAAAAG      chr_test:g.75del                chr_test:53-65  anno_B|anno_C	
 ```
 **Output flanking bases of variants and tandem repeat regions with default setting** <br />
 `python VarSCAT.py -A --flank 1 -T --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_TR`<br />
@@ -86,53 +86,60 @@ If two modules are used together, the commom parameters '--vcf','--reference','-
 ### To get help page of VarSCAT: 
 **Main:** `python VarSCAT.py -h`<br />
 ```
--A,--Ambiguity: ambigious variant annotation module
--T,--TR: tandem repeat region variant annotation module
--h,--help: help page
-Two modules can be used together or separate
-```
-**Ambiguous variant annotation module:** `python VarSCAT.py -A -h`<br />
-```
-Ambigious variant annotation module:
-Required parameters:
---vcf: a input VCF file (The VCF file should be indexed if --location or --bed is activated, a tbi file of the VCF is required)
---reference: a input reference sequence fasta file (a fai index file is required)
---based: 0-based or 1-based reference coordination (default:1)
---output: prefix of output file
-Optional parameters:
---location: a genome location need to be parsed (format chrx:xxxx-xxxx))
---bed: a bed file contains genome locations need to be parsed (Three columns: choromosome, start, end)
---LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants (default=0,0:off,1:on)
---HGVS: output the HGVS nomenclature (default=0,0:off,1:on)
---flank: output the flank bases of variants (default=0,0:off,1:on)
---adjacent: output the distance to 3' direction nearest variant. (default=0,0:off,1:on)
---mut_seq: output the reference and mutated sequence based on variants. (Integrated VCF is not supported,default=0,0:off,1:on, Note: valid with --location)
---complement: output the reverse complement sequence of mutated sequence. (Integrated VCF is not supported,default=0,0:off,1:on, Note: valid with --mut_seq)
+Help main:
+-A,--Adjacent: adjacent sequence annotation module.
+-T,--TR: tandem repeat annotation module.
+-h,--help: help page. (-h, -A -h, -T -h)
 
--h,--help: help page
+Two modules can be used together or separate.
+If two modules are used together, the commom parameters '--vcf','--reference','--location','--bed','--based' and '--output' should be only announced once. Results of two modules will be merged in one file. If no module is given, the output will be normalized variant list in txt format.
 ```
-**Tandam repeat region variant annotation module:** `python VarSCAT.py -T -h`<br />
+**Adjacent Sequence annotation module:** `python VarSCAT.py -A -h`<br />
 ```
-Tandem repeat region variant annotation module:
+Adjacent Sequence Annotation Module:
 Required parameters:
---vcf: input VCF file (The VCF file should be indexed if --location or --bed is activated, a tbi file of the VCF is required)
---reference: input reference sequence file (a fai index file is required)
---based: 0-based or 1-based reference coordination (default:1)
---output: prefix of output file
+--vcf: input VCF file. (The VCF file should be indexed if "--location" or "--bed" is activated, a tbi file of the VCF is required)
+--reference: input reference sequencing file. (The reference sequence should be indexed, a fai file is required)
+--based: 0-based or 1-based reference coordination. (default:1)
+--output: prefix of output file.
+
 Optional parameters:
---location: a genome location need to be parsed (format chrx:xxxx-xxxx)
+--location: a genome location needs to be parsed. (format chrx:xxxx-xxxx)
+--bed: a bed file contains genome locations need to be parsed.("choromosome", "start", "end" are required)
+--LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0, 0:false,1:true)
+--HGVS: output the HGVS nomenclature (default=0, 0:false,1:true. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding accession and version of the used reference)
+--flank: output the flank bases of variants. (default=0, 0:false,1:true)
+--neighbor: output the distance to 3' direction nearest variant. (default=0, 0:false,1:true)
+--mut_seq: output the reference and mutated sequence based on variants. (default=0, 0:false,1:true. Note: valid with "--location")
+--complement: output the reverse complement sequence of mutated sequence. (default=0, 0:false,1:true. Note: valid with "--mut_seq")
+--annotation: annotate variants with a custom file in bed format. ("choromosome", "start", "end" are required, additional information can be provided and annotated. Note: valid with "--location" or "--bed")
+
+-h,--help: help page.
+```
+**Tandam repeat annotation module:** `python VarSCAT.py -T -h`<br />
+```
+Tandem Repeat Annotation Module:
+Required parameters:
+--vcf: input VCF file. (The VCF file should be indexed if "--location" or "--bed" is activated, a tbi file of the VCF is required)
+--reference: input reference sequencing file. (The reference sequence should be indexed, a fai file is required)
+--based: 0-based or 1-based reference coordination. (default:1)
+--output: prefix of output file.
+
+Optional parameters:
+--location: a genome location needs to be parsed. (format chrx:xxxx-xxxx)
 --bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
-Advanced parameters:
---min_unit: the minimun size of tandem repeat motifs (default=1)
---max_unit: the maximum size of tandem repeat motifs (default=6, larger size will increase the running time)
---min_time: the minimun copy number to call a tandem repeat region (default=4) 
---match: the match score for motifs aligned with a potential tandem repeat region (default=1)
---mismatch: the mismatch score for motifs aligned with a potential tandem repeat region (default=-1)
---gap: the gap penalty for for motifs aligned with a potential tandem repeat region (default=-2)
---similarity: the minimum similarity between potential repeat units (default=100, means 100% similarity)
---gap_tolerate: the maximum tolerated gap size (bp) between potential repeat units (default=0, (default=0, set -1 for maximum gap of (motif size -1)bp))
---min_score: the minimum alignment sum score for a tandem repeat region (default=10, set according "--match","--mismatch","-gap")
---min_match_per: the minimum match percentage for a tandem repeat region (default=100, means 100% of matches)
 
--h,--help: help page
+Advanced parameters:
+--min_unit: the minimun size of tandem repeat motifs. (default=1)
+--max_unit: the maximum size of tandem repeat motifs. (default=6, larger size will increase the running time)
+--min_time: the minimun copy number to call a tandem repeat region. (default=4) 
+--match: the match score for motifs aligned with a potential tandem repeat region. (default=1)
+--mismatch: the mismatch score for motifs aligned with a potential tandem repeat region. (default=-1)
+--gap: the gap penalty for for motifs aligned with a potential tandem repeat region. (default=-2)
+--similarity: the minimum similarity between potential repeat units. (default=100, means 100% similarity)
+--gap_tolerate: the maximum tolerated gap size (bp) between potential repeat units. (default=0, set -1 for maximum gap of motif size)
+--min_score: the minimum alignment sum score for a tandem repeat region. (default=10, set according "--match","--mismatch","--gap")
+--min_match_per: the minimum match percentage for a tandem repeat region. (default=100, means 100% of matches)
+
+-h,--help: help page.
 ```
