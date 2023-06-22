@@ -86,6 +86,7 @@ If two modules are used together, the commom parameters '--vcf','--reference','-
 ### To get help page of VarSCAT: 
 **Main:** `python VarSCAT.py -h`<br />
 ```
+VarSCAT: Variant Sequence Context Annotation Tool (v1.1.0)
 Help main:
 -A,--Adjacent: adjacent sequence annotation module.
 -T,--TR: tandem repeat annotation module.
