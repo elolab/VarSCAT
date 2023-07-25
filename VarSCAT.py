@@ -67,7 +67,7 @@ Required parameters:
 
 Optional parameters:
 --location: a genome location needs to be parsed. (format chrx:xxxx-xxxx)
---bed: a bed file contains genome locations need to be parsed.("choromosome", "start", "end" are required)
+--bed: a bed file contains genome locations need to be parsed. ("choromosome", "start", "end" are required)
 --LRP: output the 5' aligned (left-most) and 3' aligned (right most) coordinates and 3' edge positions of variants. (default=0, 0:false,1:true)
 --HGVS: output the HGVS nomenclature (default=0, 0:false,1:true. Note: According to HGVS recommendation, the reference sequence can only be NCBI Reference Sequence,user should know the corresponding accession and version of the used reference)
 --flank: output the flank bases of variants. (default=0, 0:false,1:true)
@@ -92,7 +92,7 @@ Required parameters:
 
 Optional parameters:
 --location: a genome location needs to be parsed. (format chrx:xxxx-xxxx)
---bed: a bed file contains genome locations need to be parsed.(Three columns: choromosome, start, end)
+--bed: a bed file contains genome locations need to be parsed. (Three columns: choromosome, start, end)
 
 Advanced parameters:
 --min_unit: the minimun size of tandem repeat motifs. (default=1)
