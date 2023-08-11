@@ -6,7 +6,7 @@ VarSCAT is an open-source, a command-line based tool written in Python for annot
 </p>
 
 ## Citation: 
-#### Wang N, Khan S, Elo LL (2023) VarSCAT: A computational tool for sequence context annotations of genomic variants. PLoS Comput Biol 1 (8): e1010727. https://doi.org/10.1371/journal.pcbi.1010727<br />
+##### Wang N, Khan S, Elo LL (2023) VarSCAT: A computational tool for sequence context annotations of genomic variants. PLoS Comput Biol 1 (8): e1010727. https://doi.org/10.1371/journal.pcbi.1010727<br />
 
 ## Install dependencies:
 #### For conda:
