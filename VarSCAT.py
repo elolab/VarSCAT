@@ -273,7 +273,7 @@ Examples:
 Output 5' align positions, 3' align positions, 3' edge positions, flanking bases of variants, HGVS nomenclature and distance to 3' variants
 $python VarSCAT.py -A --LRP 1 --HGVS 1 --flank 1 --neighbor 1 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output
 
-Output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specfici location
+Output the reference sequence, the mutated sequence and the reverse complement of mutated sequence for a specific location
 $python VarSCAT.py -A --mut_seq 1 --complement 1 --location chr_test:20-30 --vcf ./data/test.vcf.gz --reference ./data/test.fa --output output_location
 
 Parse variants for several locations in a bed file
